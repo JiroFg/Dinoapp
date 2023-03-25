@@ -1,23 +1,46 @@
 package com.example.dinoapp
 
 import android.content.Context
-import android.net.ConnectivityManager
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.dinoapp.databinding.ActivityMainBinding
 import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+
+    lateinit var preference : SharedPreferences
+    val prefShowIntro = "Intro"
+
+    private val adapter by lazy { ViewPagerAdapter(this) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+        preference = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE)
+
+        if(preference.getBoolean(prefShowIntro, true)) {
+
+            val editor = preference.edit()
+            editor.putBoolean(prefShowIntro, false)
+            editor.commit()
+            binding.pager.adapter = adapter
+
+        }else {
+            val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+        }
         // Conexion a internet
-        val textoConexion = findViewById<TextView>(R.id.mensaje)
+        //val textoConexion = findViewById<TextView>(R.id.mensaje)
 
-        Thread(Runnable {
+        /*Thread(Runnable {
             while (true){
                 //AQUI SE DEBE PONER LO QUE DEBE ESTAR SI NO SE TIENE CONEXION A INTERNET
                 var textoInicial = "No tienes conexión"
@@ -34,6 +57,6 @@ class MainActivity : AppCompatActivity() {
                     textoConexion.text = textoInicial
                 }
             }
-        }).start()
+        }).start()*/
     }
 }
