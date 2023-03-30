@@ -1,16 +1,20 @@
 <resources>
     <string name="app_name">Dinoapp</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- String de -->
     <string name="error_conexion">Error de conexion</string>
     <string name="texto_conexion">Por favor revise su conexion a internet</string>
     <string name="bReintentar">Reintentar</string>
-    <!-- Texto de los fragment -->
-    <string name="sexo_fragment_text">Cuéntame sobre ti</string>
-    <string name="nombre_fragment_text">Fragment de nombre</string>
-    <string name="imagen_fragment_text">Fragment de selección de imagen</string>
-    <string name="bienvenida_fragment_text">Fragment de bienvenida</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- String del BienvenidaFragment -->
+    <string name="bienvenida_fragment_title">¡Bienvenido!</string>
+    <string name="bienvenida_fragment_text">Aprendamos juntos acerca de los dinosaurios</string>
+    <!-- Strings del SexoFragment -->
     <string name="male_text">Soy un niño</string>
     <string name="female_text">Soy una niña</string>
     <string name="continue_button_text">Continuar</string>
+    <string name="sexo_fragment_text">Cuéntame sobre ti</string>
+    <!-- Strings del NombreFragment -->
+    <string name="nombre_fragment_text">¿Cómo te llamas?</string>
+    <string name="hint_fragment_text">Nombre</string>
+    <!-- Strings del ImagenFragment -->
+    <string name="imagen_fragment_text">Elige una imagen de perfil</string>
 </resources>
