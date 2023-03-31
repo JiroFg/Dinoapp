@@ -19,4 +19,5 @@
         <item name="windowSplashScreenAnimationDuration">1000</item>
         <item name="postSplashScreenTheme">@style/Theme.Dinoapp</item>
     </style>
+
 </resources>
