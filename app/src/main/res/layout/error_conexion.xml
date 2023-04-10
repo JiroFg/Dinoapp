@@ -51,19 +51,22 @@
                 />
 
             <Button
-                android:id="@+id/button_dialog"
+                android:id="@+id/dialog_button"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#45c62c"
+                android:backgroundTint="@color/green"
                 android:lineHeight="20dp"
                 android:paddingHorizontal="30dp"
                 android:paddingVertical="5dp"
+                android:shadowRadius="10"
                 android:text="Reintentar \n conexión"
-                android:textSize="20dp"
                 android:textAllCaps="false"
-                android:textStyle="bold"/>
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                app:cornerRadius="25dp" />
 
             <TextView
                 android:layout_width="match_parent"

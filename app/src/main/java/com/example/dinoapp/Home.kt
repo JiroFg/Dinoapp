@@ -1,13 +1,14 @@
 package com.example.dinoapp
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
-import android.view.View
+import android.view.Window
 import android.widget.Button
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import com.example.dinoapp.databinding.ActivityHomeBinding
@@ -15,7 +16,6 @@ import com.example.dinoapp.fragment.FBook
 import com.example.dinoapp.fragment.FHome
 import com.example.dinoapp.fragment.FProfile
 import com.example.dinoapp.fragment.FShop
-
 
 
 class Home : AppCompatActivity() {
@@ -31,11 +31,6 @@ class Home : AppCompatActivity() {
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        // ## Problema de internet :D
-
-        showDialog()
-
 
         replaceFragment(FShop())
 
@@ -56,12 +51,18 @@ class Home : AppCompatActivity() {
     }
 
     private fun showDialog() {
-        val view = View.inflate(this@Home, R.layout.error_wifi, null)
-        val builder = AlertDialog.Builder(this@Home)
-        builder.setView(view)
-        val dialog = builder.create()
-        dialog.show()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        val dialog = Dialog( this );
+        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE );
+        dialog.setCancelable( false );
+        dialog.setContentView( R.layout.error_conexion );
+        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ) );
+
+        val dialogButton : Button = dialog.findViewById( R.id.dialog_button );
+        dialogButton.setOnClickListener {
+            dialog.dismiss();
+        }
+        dialog.show();
     }
 
     private fun replaceFragment(fragment : Fragment) {
@@ -81,10 +82,8 @@ class Home : AppCompatActivity() {
     }
 
     private fun drawLayout() {
-        if (isNetworkAvailable()) {
-            Toast.makeText(this, "Si hay", Toast.LENGTH_LONG).show()
-        } else {
-            Toast.makeText(this, "No hay", Toast.LENGTH_LONG).show()
+        if ( !isNetworkAvailable() ) {
+            showDialog();
         }
     }
 }
