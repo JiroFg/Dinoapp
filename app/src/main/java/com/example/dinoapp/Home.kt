@@ -36,15 +36,10 @@ class Home : AppCompatActivity() {
 
         binding.bottomNavigationView2.setOnItemReselectedListener {
             when (it.itemId) {
-
                 R.id.nav_shop -> replaceFragment(FShop())
                 R.id.nav_home -> replaceFragment(FHome())
                 R.id.nav_profile -> replaceFragment(FProfile())
                 R.id.nav_book -> replaceFragment(FBook())
-
-                else -> {
-
-                }
             }
             true
         }
@@ -60,16 +55,23 @@ class Home : AppCompatActivity() {
 
         val dialogButton : Button = dialog.findViewById( R.id.dialog_button );
         dialogButton.setOnClickListener {
-            dialog.dismiss();
+
+            if( isNetworkAvailable() ) {
+                dialog.dismiss();
+            }
+
         }
         dialog.show();
     }
 
     private fun replaceFragment(fragment : Fragment) {
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frame_layout, fragment)
-        fragmentTransaction.commit()
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.frame_layout, fragment)
+            commit()
+        }
+        //val fragmentTransaction = fragmentManager.beginTransaction()
+        //fragmentTransaction.replace(R.id.frame_layout, fragment)
+        //fragmentTransaction.commit()
         drawLayout()
     }
 
