@@ -1,25 +1,26 @@
 package com.example.dinoapp
 
-import android.content.Context
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
-import android.view.View.GONE
-import android.view.View.VISIBLE
+import android.view.Window
 import android.widget.Button
-import android.widget.RelativeLayout
-import android.widget.TextView
-import android.widget.Toast
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.fragment.app.Fragment
+import com.example.dinoapp.databinding.ActivityHomeBinding
+import com.example.dinoapp.fragment.FBook
+import com.example.dinoapp.fragment.FHome
+import com.example.dinoapp.fragment.FProfile
+import com.example.dinoapp.fragment.FShop
 
 
 class Home : AppCompatActivity() {
 
-    //    Conexion a internet
-    private lateinit var internetLayout: RelativeLayout
-    private lateinit var noInternetLayout: RelativeLayout
-    private lateinit var tryAgainButton: Button
+    private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -27,18 +28,51 @@ class Home : AppCompatActivity() {
         installSplashScreen()
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.conexion)
 
-        supportActionBar?.hide()
-        internetLayout = findViewById(R.id.internetLayout)
-        noInternetLayout = findViewById(R.id.noInternetLayout)
-        tryAgainButton = findViewById(R.id.reintentar_boton)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        drawLayout()
+        replaceFragment(FShop())
 
-        tryAgainButton.setOnClickListener {
-            drawLayout()
+        binding.bottomNavigationView2.setOnItemReselectedListener {
+            when (it.itemId) {
+                R.id.nav_shop -> replaceFragment(FShop())
+                R.id.nav_home -> replaceFragment(FHome())
+                R.id.nav_profile -> replaceFragment(FProfile())
+                R.id.nav_book -> replaceFragment(FBook())
+            }
+            true
         }
+    }
+
+    private fun showDialog() {
+
+        val dialog = Dialog( this );
+        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE );
+        dialog.setCancelable( false );
+        dialog.setContentView( R.layout.error_conexion );
+        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ) );
+
+        val dialogButton : Button = dialog.findViewById( R.id.dialog_button );
+        dialogButton.setOnClickListener {
+
+            if( isNetworkAvailable() ) {
+                dialog.dismiss();
+            }
+
+        }
+        dialog.show();
+    }
+
+    private fun replaceFragment(fragment : Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.frame_layout, fragment)
+            commit()
+        }
+        //val fragmentTransaction = fragmentManager.beginTransaction()
+        //fragmentTransaction.replace(R.id.frame_layout, fragment)
+        //fragmentTransaction.commit()
+        drawLayout()
     }
 
     private fun isNetworkAvailable(): Boolean {
@@ -50,12 +84,8 @@ class Home : AppCompatActivity() {
     }
 
     private fun drawLayout() {
-        if (isNetworkAvailable()) {
-            internetLayout.visibility = VISIBLE
-            noInternetLayout.visibility = GONE
-        } else {
-            noInternetLayout.visibility = VISIBLE
-            internetLayout.visibility = GONE
+        if ( !isNetworkAvailable() ) {
+            showDialog();
         }
     }
 }

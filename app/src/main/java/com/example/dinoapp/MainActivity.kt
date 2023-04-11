@@ -1,6 +1,5 @@
 package com.example.dinoapp
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        preference = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE)
+        preference = getSharedPreferences("MisPreferencias", MODE_PRIVATE)
 
         if(preference.getBoolean(prefShowIntro, true)) {
 
