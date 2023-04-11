@@ -21,12 +21,30 @@ class SexoFragment : Fragment() {
         val myInterface : InterfaceTransferencia = activity as InterfaceTransferencia
         _binding = FragmentSexoBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.buttonContinue.isEnabled = false
+        binding.buttonContinue.isClickable = false
+
         binding.buttonFemale.setOnClickListener {
             sexo = true
-            myInterface.transferirSexo(sexo)
+            binding.buttonContinue.isEnabled = true
+            binding.buttonContinue.isClickable = true
+            binding.buttonFemale.isEnabled = false
+            binding.buttonFemale.isClickable = false
+            binding.buttonMale.isEnabled = true
+            binding.buttonMale.isClickable = true
         }
         binding.buttonMale.setOnClickListener {
             sexo = false
+            binding.buttonContinue.isEnabled = true
+            binding.buttonContinue.isClickable = true
+            binding.buttonMale.isEnabled = false
+            binding.buttonMale.isClickable = false
+            binding.buttonFemale.isEnabled = true
+            binding.buttonFemale.isClickable = true
+        }
+
+        binding.buttonContinue.setOnClickListener {
             myInterface.transferirSexo(sexo)
         }
 

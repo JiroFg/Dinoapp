@@ -51,4 +51,13 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
         Toast.makeText(this,msg.toString(), Toast.LENGTH_SHORT).show()
         Log.d("valorSexo: ",msg.toString())
     }
+
+    override fun transferirNombre(nombre: String) {
+        Toast.makeText(this,nombre, Toast.LENGTH_SHORT).show()
+        Log.d("valorNombre: ",nombre)
+    }
+
+    override fun transferirImg(img: String) {
+
+    }
 }
