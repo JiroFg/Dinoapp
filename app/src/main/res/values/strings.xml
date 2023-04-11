@@ -17,6 +17,4 @@
     <string name="hint_fragment_text">Nombre</string>
     <!-- Strings del ImagenFragment -->
     <string name="imagen_fragment_text">Elige una imagen de perfil</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
