@@ -32,14 +32,20 @@ class Home : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        replaceFragment(FShop())
+        val fShop = FShop()
+        val fHome = FHome()
+        val fProfile = FProfile()
+        val fBook = FBook()
 
-        binding.bottomNavigationView2.setOnItemReselectedListener {
+        replaceFragment(fShop)
+
+        binding.bottomNavigationView2.setOnNavigationItemSelectedListener {
+
             when (it.itemId) {
-                R.id.nav_shop -> replaceFragment(FShop())
-                R.id.nav_home -> replaceFragment(FHome())
-                R.id.nav_profile -> replaceFragment(FProfile())
-                R.id.nav_book -> replaceFragment(FBook())
+                R.id.nav_shop -> replaceFragment(fShop)
+                R.id.nav_home -> replaceFragment(fHome)
+                R.id.nav_profile -> replaceFragment(fProfile)
+                R.id.nav_book -> replaceFragment(fBook)
             }
             true
         }
@@ -69,9 +75,6 @@ class Home : AppCompatActivity() {
             replace(R.id.frame_layout, fragment)
             commit()
         }
-        //val fragmentTransaction = fragmentManager.beginTransaction()
-        //fragmentTransaction.replace(R.id.frame_layout, fragment)
-        //fragmentTransaction.commit()
         drawLayout()
     }
 
