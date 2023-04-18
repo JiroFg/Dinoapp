@@ -1,10 +1,11 @@
-package com.example.dinoapp
+package com.example.dinoapp.fragmentosRegistro
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.dinoapp.InterfaceTransferencia
 import com.example.dinoapp.databinding.FragmentSexoBinding
 
 class SexoFragment : Fragment() {
@@ -46,6 +47,7 @@ class SexoFragment : Fragment() {
 
         binding.buttonContinue.setOnClickListener {
             myInterface.transferirSexo(sexo)
+            myInterface.continuar()
         }
 
         return view
