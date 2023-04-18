@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragmentosRegistro.NombreFragment"
+    android:background="#fff"
     android:layout_margin="16dp">
 
     <TextView
@@ -15,7 +16,11 @@
         app:layout_constraintBottom_toTopOf="@id/input_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/nombre_fragment_text" />
+        android:text="@string/nombre_fragment_text"
+        android:textSize="30dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="#7f3d00"
+        />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_layout"
@@ -26,24 +31,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:hint="@string/hint_fragment_text"
+        android:textColorHint="#7f3d00"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit"
+            android:background="@drawable/input_name"
+            android:fontFamily="@font/poppins_medium"
+            android:textSize="19dp"
+            android:textColor="#7f3d00"
+            android:layout_marginHorizontal="40dp"
+            android:paddingVertical="20dp"
+            android:paddingHorizontal="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:maxLines="1" />
+            android:backgroundTint="#fff6cd"
+            android:maxLines="1"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/button_Continue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_button_name"
+        android:fontFamily="@font/poppins_medium"
         app:layout_constraintTop_toBottomOf="@id/input_layout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/continue_button_text"/>
+        android:text="@string/continue_button_text"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="15dp"
+        android:textSize="20dp"
+        android:textColor="#FFF"
+        android:shadowRadius="20"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,38 +3,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF"
     tools:context=".fragmentosRegistro.BienvenidaFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/titulo_Bienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/texto_Bienvenida"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/bienvenida_fragment_title"
+        android:textColor="#7f3d00"
+        android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/bienvenida_fragment_title" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="332dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="44dp"
+        android:src="@drawable/dino_bienvenida"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titulo_Bienvenida" />
 
     <TextView
         android:id="@+id/texto_Bienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/titulo_Bienvenida"
-        app:layout_constraintBottom_toTopOf="@id/button_Continue"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingHorizontal="80dp"
+        android:text="@string/bienvenida_fragment_text"
+        android:textAlignment="center"
+        android:textColor="#7f3d00"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/bienvenida_fragment_text" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/button_Continue"
+        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/texto_Bienvenida"
+        android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/continue_button_text"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_Bienvenida"
+        app:layout_constraintVertical_bias="0.625"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="15dp"
+        android:text="@string/continue_button_text"
+        android:textColor="#FFF"
+        android:textSize="20dp"
+        android:shadowRadius="20"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
