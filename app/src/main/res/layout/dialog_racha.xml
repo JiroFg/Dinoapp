@@ -37,11 +37,12 @@
                 android:textSize="29dp"
                 android:fontFamily="@font/poppins_bold"
                 />
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/fire_icon" />
+                android:layout_height="137dp"
+                app:srcCompat="@drawable/fire" />
 
             <TextView
                 android:layout_width="match_parent"
