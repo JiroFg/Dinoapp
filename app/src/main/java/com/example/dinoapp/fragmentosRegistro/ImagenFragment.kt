@@ -9,7 +9,6 @@ import android.widget.ImageButton
 import com.example.dinoapp.InterfaceTransferencia
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.FragmentImagenBinding
-import com.google.android.material.circularreveal.CircularRevealHelper.Delegate
 import kotlin.properties.Delegates
 
 class ImagenFragment : Fragment() {
@@ -101,6 +100,7 @@ class ImagenFragment : Fragment() {
 
         binding.btn.setOnClickListener {
             myInterface.transferirImg(img)
+            myInterface.guardarPrefs()
         }
         return view
     }

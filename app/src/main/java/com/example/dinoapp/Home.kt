@@ -9,8 +9,8 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.view.Window
 import android.widget.Button
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
+import com.example.dinoapp.MainActivity.Companion.prefs
 import com.example.dinoapp.databinding.ActivityHomeBinding
 import com.example.dinoapp.fragment.FBook
 import com.example.dinoapp.fragment.FHome
@@ -24,13 +24,11 @@ class Home : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        //SPLASH SCREEN
-        installSplashScreen()
-
         super.onCreate(savedInstanceState)
-
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.text.text = prefs.myToString()
 
         val fShop = FShop()
         val fHome = FHome()
