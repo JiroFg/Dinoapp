@@ -1,4 +1,4 @@
-package com.example.dinoapp
+package com.example.dinoapp.fragmentosRegistro
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import com.example.dinoapp.InterfaceTransferencia
+import com.example.dinoapp.R
 import com.example.dinoapp.databinding.FragmentImagenBinding
+import com.google.android.material.circularreveal.CircularRevealHelper.Delegate
+import kotlin.properties.Delegates
 
 class ImagenFragment : Fragment() {
 
@@ -18,7 +22,10 @@ class ImagenFragment : Fragment() {
     var isPressed4:Boolean = false
     var isPressed5:Boolean = false
     var isPressed6:Boolean = false
-    var img:Int = 1
+    var img: Int by Delegates.observable(0){ prop, old, new ->
+        binding.btn.isEnabled = true
+        binding.btn.isClickable = true
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +34,9 @@ class ImagenFragment : Fragment() {
         val myInterface : InterfaceTransferencia = activity as InterfaceTransferencia
         _binding = FragmentImagenBinding.inflate(inflater, container,false)
         val view = binding.root
+        //jeje
+        binding.btn.isEnabled = false
+        binding.btn.isClickable = false
         //Activar y desactivar image buttons
         binding.imgBtn1.setOnClickListener {
             if(isPressed){

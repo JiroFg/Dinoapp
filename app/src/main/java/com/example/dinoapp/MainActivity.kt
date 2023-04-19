@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
         //si las preferencias estan por defecto "true" redirige al adapter
         if(preference.getBoolean(prefShowIntro, true)) {
             binding.pager.adapter = adapter
+            binding.pager.isUserInputEnabled = false
         }else{
             //caso contrario nos redirige a la pantalla home
             val intent = Intent(this, Home::class.java)
@@ -58,5 +59,9 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
         val intent = Intent(this, Home::class.java)
         startActivity(intent)
         finish()
+    }
+
+    override fun continuar() {
+        binding.pager.currentItem++
     }
 }
