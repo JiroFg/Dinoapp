@@ -24,7 +24,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text">
 
-
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
