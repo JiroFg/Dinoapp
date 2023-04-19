@@ -1,9 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<shape xmlns:android="http://schemas.android.com/apk/res/android" >
-    <corners android:radius="50dp"/>
-    <solid android:color="@color/green" />
-</shape> -->
-
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Bottom 15dp Shadow -->
@@ -11,8 +6,8 @@
         <shape  android:shape="rectangle">
 
             <!--            Button Shadow Color -->
-            <solid android:color="#3d952d" />
-            <corners android:radius="25dp" />
+            <solid android:color="#8e0c0c" />
+            <corners android:radius="35dp" />
 
         </shape>
     </item>
@@ -27,8 +22,8 @@
                 android:right="20dp"/>
 
             <!--            Button TOP Color -->
-            <solid android:color="@color/green" />
-            <corners android:radius="25dp" />
+            <solid android:color="#ff2d2e" />
+            <corners android:radius="35dp" />
         </shape>
 
     </item>

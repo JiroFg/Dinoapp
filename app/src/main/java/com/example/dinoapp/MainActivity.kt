@@ -1,21 +1,20 @@
 package com.example.dinoapp
 
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.example.dinoapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity(), InterfaceTransferencia {
+
+    companion object{
+        lateinit var prefs: Prefs
+    }
 
     private lateinit var binding: ActivityMainBinding
     private var sexo: Boolean = false
     private var nombre: String = ""
     private var img: Int = 1
-
-    lateinit var preference : SharedPreferences
-    val prefShowIntro = "Intro"
 
     private val adapter by lazy { ViewPagerAdapter(this) }
 
@@ -23,45 +22,45 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //VIEW DE BIENVENIDA
-        preference = getSharedPreferences("MisPreferencias", MODE_PRIVATE)
+
+        //Instancia de la clase de preferencias
+        prefs = Prefs(this)
+
         //si las preferencias estan por defecto "true" redirige al adapter
-        if(preference.getBoolean(prefShowIntro, true)) {
+        if(prefs.getIntro()) {
             binding.pager.adapter = adapter
             binding.pager.isUserInputEnabled = false
         }else{
-            //caso contrario nos redirige a la pantalla home
-            val intent = Intent(this, Home::class.java)
-            startActivity(intent)
-            finish()
+            //Caso constrario si las preferencias fueron guardadas y es false inicia la actividad principal
+            iniciarActividadHome()
         }
     }
 
     override fun transferirSexo(sexo: Boolean) {
-        Log.d("valorSexo: ",sexo.toString())
         this.sexo = sexo
     }
 
     override fun transferirNombre(nombre: String) {
-        Log.d("valorNombre: ",nombre)
         this.nombre = nombre
     }
 
     override fun transferirImg(img: Int) {
-        //Log.d("valorImg: ",img.toString())
         this.img = img
-        //modificación de preferencias al finalizar la configuración del usuario
-        val editor = preference.edit()
-        //cambia a false para que no se vuelva a mostrar la configuración inicial
-        editor.putBoolean(prefShowIntro, false)
-        editor.apply()
-        //coloca los datos en el intent y redirige a la pantalla home
-        val intent = Intent(this, Home::class.java)
-        startActivity(intent)
-        finish()
+    }
+
+    override fun guardarPrefs() {
+        prefs.saveData(sexo,nombre,img)
+        prefs.editIntro(false)
+        iniciarActividadHome()
     }
 
     override fun continuar() {
         binding.pager.currentItem++
+    }
+
+    fun iniciarActividadHome(){
+        val intent = Intent(this, Home::class.java)
+        startActivity(intent)
+        finish()
     }
 }
