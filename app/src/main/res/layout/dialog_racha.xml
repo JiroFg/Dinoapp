@@ -34,7 +34,7 @@
                 android:text="¡Buen trabajo!"
                 android:textAlignment="center"
                 android:textColor="#000"
-                android:textSize="29dp"
+                android:textSize="26dp"
                 android:fontFamily="@font/poppins_bold"
                 />
 
@@ -52,7 +52,7 @@
                 android:text="Tu racha máxima fue:"
                 android:textAlignment="center"
                 android:textColor="#000"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:fontFamily="@font/poppins_regular"
                 android:textStyle="bold"
                 />
@@ -64,7 +64,7 @@
                 android:text="x3"
                 android:textAlignment="center"
                 android:textColor="#000"
-                android:textSize="29dp"
+                android:textSize="26dp"
                 android:fontFamily="@font/poppins_bold"
                 />
             <Button
@@ -73,16 +73,16 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#f94342"
+                android:background="@drawable/bg_button_racha"
                 android:fontFamily="@font/poppins_medium"
                 android:lineHeight="20dp"
                 android:paddingHorizontal="30dp"
-                android:paddingVertical="8dp"
+                android:paddingVertical="5dp"
                 android:shadowRadius="20"
                 android:text="Aceptar"
                 android:textAllCaps="false"
                 android:textColor="#fff"
-                android:textSize="19dp"
+                android:textSize="18dp"
                 android:textStyle="bold"
                 app:cornerRadius="25dp" />
 
