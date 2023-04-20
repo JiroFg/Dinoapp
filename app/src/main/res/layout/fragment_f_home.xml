@@ -16,4 +16,20 @@
         android:layout_gravity="center"
         />
 
+    <Button
+        android:id="@+id/botonMemorama"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="600dp"
+        android:text="Memorama" />
+
+    <Button
+        android:id="@+id/botonQuiz"
+        android:layout_width="81dp"
+        android:layout_height="53dp"
+        android:layout_marginHorizontal="280dp"
+        android:layout_marginVertical="600dp"
+        android:text="Quiz" />
+
 </FrameLayout>

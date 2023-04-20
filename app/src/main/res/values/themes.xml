@@ -19,5 +19,7 @@
         <item name="windowSplashScreenAnimationDuration">1000</item>
         <item name="postSplashScreenTheme">@style/Theme.Dinoapp</item>
     </style>
+    <style name="ThemeOverlay.Dinoapp.FullscreenContainer" parent="">
+    </style>
 
 </resources>
