@@ -1,11 +1,13 @@
 package com.example.dinoapp.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.example.dinoapp.Memoria.juegoMemoria
 import com.example.dinoapp.databinding.FragmentFHomeBinding
 class FHome : Fragment() {
 
@@ -23,7 +25,8 @@ class FHome : Fragment() {
         // Inflate the layout for this fragment
         binding.botonMemorama.setOnClickListener {
             Toast.makeText(context,"click",Toast.LENGTH_SHORT).show()
-
+            val intent = Intent(context, juegoMemoria::class.java)
+            startActivity(intent)
         }
 
 

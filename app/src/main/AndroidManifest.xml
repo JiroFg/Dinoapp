@@ -15,8 +15,9 @@
         android:theme="@style/Theme.Dinoapp"
         tools:targetApi="31">
         <activity
-            android:name=".Memoria"
-            android:exported="false" />
+            android:name=".Memoria.juegoMemoria"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Home"
             android:exported="false"
