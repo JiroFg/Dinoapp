@@ -31,25 +31,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center_horizontal"
-                android:text="¡Buen trabajo!"
+                android:text="¡Atención!"
                 android:textAlignment="center"
                 android:textColor="#000"
                 android:textSize="26dp"
                 android:fontFamily="@font/poppins_bold"
                 />
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="137dp"
-                app:srcCompat="@drawable/fire" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/avatar_new_dino_img"
+                android:layout_width="194dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dilo"
+                app:civ_border_color="#FFF" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
-                android:text="Tu racha máxima fue:"
+                android:text="Nuevo dinosaurio en la tienda\n"
                 android:textAlignment="center"
                 android:textColor="#000"
                 android:textSize="16dp"
@@ -57,19 +58,8 @@
                 android:textStyle="bold"
                 />
 
-            <TextView
-                android:id="@+id/dialog_racha_value"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="x3"
-                android:textAlignment="center"
-                android:textColor="#000"
-                android:textSize="26dp"
-                android:fontFamily="@font/poppins_bold"
-                />
             <Button
-                android:id="@+id/dialog_racha_aceptar"
+                android:id="@+id/dialog_new_dino_aceptar"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -81,6 +71,24 @@
                 android:paddingVertical="5dp"
                 android:shadowRadius="20"
                 android:text="Aceptar"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:cornerRadius="25dp" />
+            <Button
+                android:id="@+id/dialog_new_dino_comprar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_racha"
+                android:fontFamily="@font/poppins_medium"
+                android:lineHeight="20dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="5dp"
+                android:shadowRadius="20"
+                android:text="Comprar"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="18dp"
