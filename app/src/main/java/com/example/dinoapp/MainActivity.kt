@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
     private var sexo: Boolean = false
     private var nombre: String = ""
     private var img: Int = 1
-
     private val adapter by lazy { ViewPagerAdapter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -10,7 +10,6 @@ import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
 import android.view.Window
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import com.example.dinoapp.MainActivity.Companion.prefs
 import com.example.dinoapp.databinding.ActivityHomeBinding
 import com.example.dinoapp.fragment.FBook
 import com.example.dinoapp.fragment.FHome
@@ -18,7 +17,7 @@ import com.example.dinoapp.fragment.FProfile
 import com.example.dinoapp.fragment.FShop
 
 
-class Home : AppCompatActivity() {
+class Home : AppCompatActivity(){
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -28,16 +27,12 @@ class Home : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.text.text = prefs.myToString()
-
         val fShop = FShop()
         val fHome = FHome()
         val fProfile = FProfile()
         val fBook = FBook()
 
-        replaceFragment(fShop)
-
-        binding.bottomNavigationView2.setOnNavigationItemSelectedListener {
+        binding.bottomNavigationView2.setOnItemSelectedListener {
 
             when (it.itemId) {
                 R.id.nav_shop -> replaceFragment(fShop)
@@ -51,21 +46,21 @@ class Home : AppCompatActivity() {
 
     private fun showDialog() {
 
-        val dialog = Dialog( this );
-        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE );
-        dialog.setCancelable( false );
-        dialog.setContentView( R.layout.error_conexion );
-        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ) );
+        val dialog = Dialog( this )
+        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
+        dialog.setCancelable( false )
+        dialog.setContentView( R.layout.error_conexion )
+        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ) )
 
-        val dialogButton : Button = dialog.findViewById( R.id.dialog_button );
+        val dialogButton : Button = dialog.findViewById( R.id.dialog_button )
         dialogButton.setOnClickListener {
 
             if( isNetworkAvailable() ) {
-                dialog.dismiss();
+                dialog.dismiss()
             }
 
         }
-        dialog.show();
+        dialog.show()
     }
 
     private fun replaceFragment(fragment : Fragment) {
@@ -86,7 +81,7 @@ class Home : AppCompatActivity() {
 
     private fun drawLayout() {
         if ( !isNetworkAvailable() ) {
-            showDialog();
+            showDialog()
         }
     }
 }

@@ -5,6 +5,5 @@ interface InterfaceTransferencia {
     fun transferirNombre(nombre: String)
     fun transferirImg(img: Int)
     fun continuar()
-
     fun guardarPrefs()
 }
