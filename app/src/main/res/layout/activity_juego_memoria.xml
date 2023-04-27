@@ -21,6 +21,7 @@
         android:layout_width="93dp"
         android:layout_height="97dp"
         android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

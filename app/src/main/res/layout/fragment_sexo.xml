@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fff"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragmentosRegistro.SexoFragment">
 
@@ -10,39 +11,67 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/button_Male"
+        android:fontFamily="@font/poppins_bold"
         android:text="@string/sexo_fragment_text"
-        tools:ignore="MissingConstraints" />
+        android:textColor="#7f3d00"
+        android:textSize="36dp"
+        app:layout_constraintBottom_toTopOf="@id/button_Male"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.332" />
+
     <Button
         android:id="@+id/button_Male"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="165dp"
+        android:layout_height="350dp"
+        android:background="@drawable/btn_bg_sexo"
+        android:drawableBottom="@drawable/boy"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="17dp"
+        android:text="@string/male_text"
+        android:textColor="#7f3d00"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/button_Female"
-        android:text="@string/male_text"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
     <Button
         android:id="@+id/button_Female"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="165dp"
+        android:layout_height="350dp"
+        android:background="@drawable/btn_bg_sexo"
+        android:drawableBottom="@drawable/girl"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="17dp"
+        android:text="@string/female_text"
+        android:textColor="#7f3d00"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/button_Male"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/female_text"/>
+        app:layout_constraintStart_toEndOf="@id/button_Male"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
 
     <Button
         android:id="@+id/button_Continue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/button_Male"
+        android:background="@drawable/bg_button_name"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="15dp"
+        android:shadowRadius="20"
+        android:text="@string/continue_button_text"
+        android:textColor="#FFF"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/continue_button_text"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/button_Male"
+        app:layout_constraintVertical_bias="0.843" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
