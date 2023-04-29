@@ -19,6 +19,7 @@ class memoria : Fragment() {
     private lateinit var botones: List<ImageButton>
     private lateinit var cartas: List<carta>
     private var cartaSeleccionada: Int? = null
+    private var contador:Int=0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,10 +50,12 @@ class memoria : Fragment() {
                 actualizarModelos(index)
                 // Actulizar UI
                 actualizarVistas()
+
+//                if (contador == 12){
+//                    restablecer()
+//                }
             }
         }
-
-
         return binding.root
     }
 
@@ -85,11 +88,13 @@ class memoria : Fragment() {
     }
 
     private fun verificarMatch(pos1: Int, pos2: Int) {
+        Toast.makeText(context,"No coinciden :(", Toast.LENGTH_SHORT).show()
         if (cartas[pos1].id == cartas[pos2].id){
             Toast.makeText(context,"Felicidades son iguales", Toast.LENGTH_SHORT).show()
             cartas[pos1].isMatched = true
             cartas[pos2].isMatched = true
-
+            contador+=2
+            Log.i("Contador",contador.toString())
         }
     }
 

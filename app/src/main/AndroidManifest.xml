@@ -22,6 +22,9 @@
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
+            android:name=".Quiz.Quiz"
+            android:exported="false" />
+        <activity
             android:name=".Home"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.dinoapp.Memoria.juegoMemoria
+import com.example.dinoapp.Quiz.Quiz
 import com.example.dinoapp.databinding.FragmentFHomeBinding
 class FHome : Fragment() {
 
@@ -23,9 +24,17 @@ class FHome : Fragment() {
     ): View? {
         _binding = FragmentFHomeBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
+
+
         binding.botonMemorama.setOnClickListener {
             Toast.makeText(context,"click",Toast.LENGTH_SHORT).show()
             val intent = Intent(context, juegoMemoria::class.java)
+            startActivity(intent)
+        }
+
+        binding.botonQuiz.setOnClickListener {
+            Toast.makeText(context,"click",Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, Quiz::class.java)
             startActivity(intent)
         }
 

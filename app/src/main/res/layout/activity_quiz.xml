@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    tools:context=".Quiz.Quiz">
+
+    <ImageView
+        android:id="@+id/btn_atras"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/cancel"
+        android:background="@drawable/bg_btn_edit" />
+
+
+    <LinearLayout
+        android:layout_width="309dp"
+        android:layout_height="49dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="5"
+            android:minHeight="50dp"
+            android:progress="0" />
+
+        <TextView
+            android:id="@+id/total_preguntas_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="1/5"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/pregunta_texto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="¿Pregunta?"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.101" />
+
+
+    <ImageView
+        android:id="@+id/imagen_quiz"
+        android:layout_width="335dp"
+        android:layout_height="218dp"
+        android:layout_marginTop="136dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/btn_opc1"
+        android:layout_width="379dp"
+        android:layout_height="46dp"
+        android:background="@drawable/opcion_pregunta"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Opcion 1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagen_quiz"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <TextView
+        android:id="@+id/btn_opc2"
+        android:layout_width="379dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/opcion_pregunta"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Opcion 2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_opc1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/btn_opc3"
+        android:layout_width="379dp"
+        android:layout_height="46dp"
+        android:background="@drawable/opcion_pregunta"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Opcion 3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_opc2"
+        app:layout_constraintVertical_bias="0.048" />
+
+    <TextView
+        android:id="@+id/btn_opc4"
+        android:layout_width="379dp"
+        android:layout_height="46dp"
+        android:background="@drawable/opcion_pregunta"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Opcion 4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_opc3"
+        app:layout_constraintVertical_bias="0.066" />
+
+    <Button
+        android:id="@+id/btn_continuar"
+        android:layout_width="201dp"
+        android:layout_height="49dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn"
+        android:fontFamily="@font/poppins_medium"
+        android:lineHeight="20dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="5dp"
+        android:shadowRadius="20"
+        android:text="Continuar"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.958"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

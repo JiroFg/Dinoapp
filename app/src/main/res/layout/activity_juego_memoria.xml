@@ -8,11 +8,12 @@
 
     <ImageButton
         android:id="@+id/botonSalir"
-        android:layout_width="75dp"
-        android:layout_height="56dp"
+        android:layout_width="21dp"
+        android:layout_height="21dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="32dp"
         android:src="@drawable/cancel"
+        android:background="@drawable/bg_btn_edit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -173,9 +174,11 @@
         android:id="@+id/textRacha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="52dp"
         android:text="DINORACHA: "
-        tools:layout_editor_absoluteX="177dp"
-        tools:layout_editor_absoluteY="52dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

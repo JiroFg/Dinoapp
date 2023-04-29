@@ -1,12 +1,16 @@
 package com.example.dinoapp.Memoria
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
+import com.example.dinoapp.Home
+import com.example.dinoapp.Quiz.Quiz
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityJuegoMemoriaBinding
+import com.example.dinoapp.fragment.FHome
 
 class juegoMemoria : AppCompatActivity() {
 
@@ -54,6 +58,11 @@ class juegoMemoria : AppCompatActivity() {
             }
         }
 
+        binding.botonSalir.setOnClickListener{
+            Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Home::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun actualizarModelos(pos: Int) {
