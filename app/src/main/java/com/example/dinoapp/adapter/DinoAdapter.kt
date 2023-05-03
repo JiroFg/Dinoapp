@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dinoapp.Dino
 import com.example.dinoapp.R
 
-class DinoAdapter(private val dinoList:List<Dino>, private val onClickListener: (Dino) -> Unit) : RecyclerView.Adapter<DinoViewHolder>(){
+class DinoAdapter(private var dinoList:List<Dino>, private val onClickListener: (Dino) -> Unit) : RecyclerView.Adapter<DinoViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DinoViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -18,5 +18,10 @@ class DinoAdapter(private val dinoList:List<Dino>, private val onClickListener: 
     override fun onBindViewHolder(holder: DinoViewHolder, position: Int) {
         val item = dinoList[position]
         holder.render(item, onClickListener)
+    }
+
+    fun setFilterList(list: List<Dino>){
+        this.dinoList = list
+        notifyDataSetChanged()
     }
 }

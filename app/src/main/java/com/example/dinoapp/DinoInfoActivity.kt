@@ -30,7 +30,12 @@ class DinoInfoActivity : AppCompatActivity() {
 
         val nombre = intent.getStringExtra(DINO_NOMBRE)
         val img = intent.getStringExtra(DINO_IMG)
-        binding.text.text = nombre
+        binding.textName.text = nombre
         Glide.with(this).load(img).into(binding.img)
+        buttonsConf()
+    }
+
+    fun buttonsConf(){
+        binding.backButton.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
     }
 }

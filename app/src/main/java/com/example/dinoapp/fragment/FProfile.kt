@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.example.dinoapp.MainActivity.Companion.prefs
 import com.example.dinoapp.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -28,6 +30,7 @@ class FProfile : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        Toast.makeText(activity, prefs.getName(), Toast.LENGTH_LONG).show()
     }
 
     override fun onCreateView(
