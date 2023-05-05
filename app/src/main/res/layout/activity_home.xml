@@ -20,13 +20,13 @@
         android:id="@+id/bottomNavigationView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="#7f3d00"
+        android:background="@color/navigation_background"
         app:elevation="20dp"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/nav_menu"
-        app:itemIconTint="#ff8c25"/>
+        app:itemIconTint="@color/navigation_icon_tin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
