@@ -11,6 +11,7 @@ import com.example.dinoapp.Quiz.Quiz
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityJuegoMemoriaBinding
 import com.example.dinoapp.fragment.FHome
+import kotlin.properties.Delegates
 
 class juegoMemoria : AppCompatActivity() {
 
@@ -18,12 +19,19 @@ class juegoMemoria : AppCompatActivity() {
     private lateinit var botones: List<ImageButton>
     private lateinit var cartas: List<carta>
     private var cartaSeleccionada: Int? = null
-    private var TAG = "logs"
+    private var contador = 0
+    private var tamano: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityJuegoMemoriaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnContinuar.isClickable = false
+        binding.btnContinuar.isEnabled = false
+        binding.btnContinuar.setOnClickListener {
+            finish()
+        }
 
         val imagenes = mutableListOf(
             R.drawable.memorama1,
@@ -48,9 +56,11 @@ class juegoMemoria : AppCompatActivity() {
         cartas = botones.indices.map { index ->
             carta(imagenes[index])
         }
+        tamano = cartas.size
         botones.forEachIndexed { index, boton ->
             boton.setOnClickListener {
-                Log.i(TAG, "Boton pulsado")
+                Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
+                activarContinuar()
                 // Actualizar los modelos
                 actualizarModelos(index)
                 // Actulizar UI
@@ -60,8 +70,24 @@ class juegoMemoria : AppCompatActivity() {
 
         binding.botonSalir.setOnClickListener{
             Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, Home::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, Home::class.java)
+//            startActivity(intent)
+            finish()
+        }
+    }
+    fun activarContinuar(){
+//        Toast.makeText(this,contador.toString(), Toast.LENGTH_SHORT).show()
+//        Log.d("PRUEBA", contador.toString())
+        contador = 0
+        for (carta in cartas){
+            if (carta.isMatched == true){
+                contador ++
+                Log.d("PRUEBA", contador.toString())
+            }
+            if (contador == tamano){
+                binding.btnContinuar.isClickable = true
+                binding.btnContinuar.isEnabled = true
+            }
         }
     }
 

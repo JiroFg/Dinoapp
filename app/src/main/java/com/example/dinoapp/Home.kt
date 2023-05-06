@@ -32,6 +32,10 @@ class Home : AppCompatActivity(){
         val fProfile = FProfile()
         val fBook = FBook()
 
+        //se asignan los valores por defecto
+        replaceFragment(fHome)
+        binding.bottomNavigationView2.selectedItemId = R.id.nav_home
+
         binding.bottomNavigationView2.setOnItemSelectedListener {
 
             when (it.itemId) {

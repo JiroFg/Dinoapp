@@ -32,6 +32,8 @@ class Quiz : AppCompatActivity() {
         binding = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        desactivarBtn()
+
         listaPreguntas = QuizSetData.agarrarPregunta()
         setPregunta()
 
@@ -49,6 +51,7 @@ class Quiz : AppCompatActivity() {
 
         binding.btnOpc4.setOnClickListener{
             opcionSeleccionadaStyle(binding.btnOpc4,4)
+
         }
 
         binding.btnContinuar.setOnClickListener {
@@ -62,8 +65,16 @@ class Quiz : AppCompatActivity() {
                 setColor(pregunta.correcta,R.drawable.opcion_pregunta_correcta)
                 if (opcionSeleccionada==listaPreguntas!!.size){
                     binding.btnContinuar.text = "Terminar"
+                    binding.btnOpc1.isClickable = false
+                    binding.btnOpc2.isClickable = false
+                    binding.btnOpc3.isClickable = false
+                    binding.btnOpc4.isClickable = false
                 }else{
                     binding.btnContinuar.text = "Ir siguiente"
+                    binding.btnOpc1.isClickable = false
+                    binding.btnOpc2.isClickable = false
+                    binding.btnOpc3.isClickable = false
+                    binding.btnOpc4.isClickable = false
                 }
             }else{
                 currentpos++
@@ -78,6 +89,7 @@ class Quiz : AppCompatActivity() {
 //                        intent.putExtra("Total",listaPreguntas!!.size.toString())
                         Toast.makeText(this,score.toString(),Toast.LENGTH_SHORT).show()
                         Toast.makeText(this,listaPreguntas!!.size.toString(),Toast.LENGTH_SHORT).show()
+                        finish()
                     }
                 }
             }
@@ -86,8 +98,9 @@ class Quiz : AppCompatActivity() {
 
         binding.btnAtras.setOnClickListener{
             Toast.makeText(this,"click", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, Home::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, Home::class.java)
+//            startActivity(intent)
+            finish()
         }
 
 //        binding.btnContinuar.setOnClickListener {
@@ -96,6 +109,16 @@ class Quiz : AppCompatActivity() {
 //                startActivity(intent)
 //            }
 //        }
+    }
+
+    fun activarBtn(){
+        binding.btnContinuar.isEnabled = true
+        binding.btnContinuar.isClickable = true
+    }
+
+    fun desactivarBtn(){
+        binding.btnContinuar.isEnabled = false
+        binding.btnContinuar.isClickable = false
     }
 
     fun setColor(opt:Int,color:Int){
@@ -126,6 +149,11 @@ class Quiz : AppCompatActivity() {
         binding.btnOpc2.text = pregunta.opcion_dos
         binding.btnOpc3.text = pregunta.opcion_tres
         binding.btnOpc4.text = pregunta.opcion_cuatro
+        binding.btnOpc1.isClickable = true
+        binding.btnOpc2.isClickable = true
+        binding.btnOpc3.isClickable = true
+        binding.btnOpc4.isClickable = true
+        desactivarBtn()
     }
 
     fun setOptionStyle(){
@@ -148,6 +176,6 @@ class Quiz : AppCompatActivity() {
         view.background = ContextCompat.getDrawable(this, R.drawable.opcion_pregunta_seleccionada)
         view.typeface = Typeface.DEFAULT_BOLD
         view.setTextColor(Color.parseColor("#000000"))
-
+        activarBtn()
     }
 }
