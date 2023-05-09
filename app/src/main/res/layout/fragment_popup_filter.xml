@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filtros"
+            android:textColor="@color/dino_text"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/herviboroCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hervíboro" />
+
+            <CheckBox
+                android:id="@+id/carnivoroCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carnívoro" />
+
+            <CheckBox
+                android:id="@+id/triacicoCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Triasico" />
+
+            <CheckBox
+                android:id="@+id/jurasicoCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jurasico" />
+
+            <CheckBox
+                android:id="@+id/cretacicoCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cretacico" />
+
+            <CheckBox
+                android:id="@+id/terrestreCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Terrestre" />
+
+            <CheckBox
+                android:id="@+id/saurisquiosCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saurisquios" />
+
+            <CheckBox
+                android:id="@+id/ornitisquiosCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ornitisquios" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aplicar" />
+    </LinearLayout>
+
+</LinearLayout>

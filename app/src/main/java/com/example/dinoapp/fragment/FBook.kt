@@ -7,15 +7,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dinoapp.DinoRecycler.Dino
 import com.example.dinoapp.DinoInfoActivity
 import com.example.dinoapp.DinoRecycler.DinoProvider
 import com.example.dinoapp.DinoRecycler.DinoAdapter
+import com.example.dinoapp.PopupFilterFragment
 import com.example.dinoapp.databinding.FragmentFBookBinding
 
-class FBook : Fragment() {
+class FBook : Fragment(){
 
     private var _binding : FragmentFBookBinding? = null
     private val binding get() = _binding!!
@@ -28,7 +30,15 @@ class FBook : Fragment() {
         _binding = FragmentFBookBinding.inflate(inflater, container, false)
         initRecyclerView()
         initSearchView()
+        initBtn()
         return binding.root
+    }
+
+    private fun initBtn() {
+        binding.filterBtn.setOnClickListener {
+            val showPopUp = PopupFilterFragment()
+            showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopUp")
+        }
     }
 
     private fun initRecyclerView(){
@@ -45,30 +55,53 @@ class FBook : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
+                searchList(newText)
                 return true
             }
         })
     }
 
-    private fun filterList(query:String?){
+    private fun searchList(query:String?){
         if(query!=null){
-            val filteredList = arrayListOf<Dino>()
+            val searchedList = arrayListOf<Dino>()
             for(dino in DinoProvider.dinoList){
                 if(dino.nombre.lowercase().contains(query)){
-                    filteredList.add(dino)
+                    searchedList.add(dino)
                 }
             }
-            if(filteredList.isEmpty()){
+            if(searchedList.isEmpty()){
                 Toast.makeText(activity, "Sin coincidencias",Toast.LENGTH_SHORT).show()
-                adapter.setFilterList(filteredList)
+                adapter.setFilterList(searchedList)
             }else{
-                adapter.setFilterList(filteredList)
+                adapter.setFilterList(searchedList)
             }
         }
     }
 
-    private fun onItemSelected(dino: Dino){
+    fun filterList(filters: ArrayList<String>){
+        val filteredList = arrayListOf<Dino>()
+        for(dino in DinoProvider.dinoList){
+            for(filter in filters) {
+                when (filter.lowercase()) {
+                    dino.dieta,
+                    dino.epoca,
+                    dino.tipo,
+                    dino.orden,
+                    dino.familia
+                    -> filteredList.add(dino)
+                }
+            }
+        }
+        if(filteredList.isEmpty()){
+            Toast.makeText(activity, "Sin coincidencias",Toast.LENGTH_SHORT).show()
+            adapter.setFilterList(filteredList)
+        }else{
+            adapter.setFilterList(filteredList)
+        }
+    }
+
+
+    private fun onItemSelected(dino: Dino) {
         val intent = Intent(activity, DinoInfoActivity::class.java).apply {
             putExtra(DinoInfoActivity.DINO_ID, dino.id)
             putExtra(DinoInfoActivity.DINO_NOMBRE, dino.nombre)
@@ -83,5 +116,4 @@ class FBook : Fragment() {
         }
         startActivity(intent)
     }
-
 }
