@@ -1,9 +1,8 @@
-package com.example.dinoapp.adapter
+package com.example.dinoapp.DinoRecycler
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.dinoapp.Dino
 import com.example.dinoapp.databinding.ItemDinoBinding
 
 class DinoViewHolder(view:View): RecyclerView.ViewHolder(view){

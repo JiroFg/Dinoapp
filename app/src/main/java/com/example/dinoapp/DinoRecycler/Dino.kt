@@ -1,4 +1,4 @@
-package com.example.dinoapp
+package com.example.dinoapp.DinoRecycler
 
 class Dino (val id:Int,
             val nombre:String,

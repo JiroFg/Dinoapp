@@ -15,9 +15,12 @@
         android:theme="@style/Theme.Dinoapp"
         tools:targetApi="31">
         <activity
+            android:name=".LessonActivity"
+            android:exported="false" />
+        <activity
             android:name=".DinoInfoActivity"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Memoria.juegoMemoria"
             android:exported="false"
@@ -25,7 +28,7 @@
         <activity
             android:name=".Quiz.Quiz"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Home"
             android:exported="false"
@@ -40,7 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

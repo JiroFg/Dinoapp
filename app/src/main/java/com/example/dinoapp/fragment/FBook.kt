@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.dinoapp.Dino
+import com.example.dinoapp.DinoRecycler.Dino
 import com.example.dinoapp.DinoInfoActivity
-import com.example.dinoapp.DinoProvider
-import com.example.dinoapp.adapter.DinoAdapter
+import com.example.dinoapp.DinoRecycler.DinoProvider
+import com.example.dinoapp.DinoRecycler.DinoAdapter
 import com.example.dinoapp.databinding.FragmentFBookBinding
-import java.util.Locale
 
 class FBook : Fragment() {
 
@@ -69,7 +68,7 @@ class FBook : Fragment() {
         }
     }
 
-    private fun onItemSelected(dino:Dino){
+    private fun onItemSelected(dino: Dino){
         val intent = Intent(activity, DinoInfoActivity::class.java).apply {
             putExtra(DinoInfoActivity.DINO_ID, dino.id)
             putExtra(DinoInfoActivity.DINO_NOMBRE, dino.nombre)

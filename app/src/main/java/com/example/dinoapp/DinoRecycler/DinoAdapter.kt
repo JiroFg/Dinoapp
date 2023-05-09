@@ -1,9 +1,8 @@
-package com.example.dinoapp.adapter
+package com.example.dinoapp.DinoRecycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dinoapp.Dino
 import com.example.dinoapp.R
 
 class DinoAdapter(private var dinoList:List<Dino>, private val onClickListener: (Dino) -> Unit) : RecyclerView.Adapter<DinoViewHolder>(){
