@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
     }
 
     fun iniciarActividadHome(){
-        val intent = Intent(this, Home::class.java)
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         finish()
     }

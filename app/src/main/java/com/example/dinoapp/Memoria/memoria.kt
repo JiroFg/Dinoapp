@@ -17,7 +17,7 @@ class memoria : Fragment() {
     private var _binding : FragmentMemoriaBinding? = null
     private val binding get() = _binding!!
     private lateinit var botones: List<ImageButton>
-    private lateinit var cartas: List<carta>
+    private lateinit var cartas: List<Carta>
     private var cartaSeleccionada: Int? = null
     private var contador:Int=0
 
@@ -41,7 +41,7 @@ class memoria : Fragment() {
         )
 
         cartas = botones.indices.map { index ->
-            carta(imagenes[index])
+            Carta(imagenes[index])
         }
         botones.forEachIndexed { index, boton ->
             boton.setOnClickListener {

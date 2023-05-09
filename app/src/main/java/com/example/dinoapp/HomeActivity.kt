@@ -17,7 +17,7 @@ import com.example.dinoapp.fragment.FProfile
 import com.example.dinoapp.fragment.FShop
 
 
-class Home : AppCompatActivity(){
+class HomeActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityHomeBinding
 

@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/backButton"
+            android:id="@+id/backBtn"
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:background="@color/navigation_background"
@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imgCardview"
-        app:layout_constraintBottom_toTopOf="@id/btnContinue">
+        app:layout_constraintBottom_toTopOf="@id/continueBtn">
 
         <TextView
             android:id="@+id/textInfo"
@@ -83,7 +83,7 @@ blalbalblalbldalfljdalfjdsalfjd hola como estas como te va"
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btnContinue"
+        android:id="@+id/continueBtn"
         android:layout_marginTop="32dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

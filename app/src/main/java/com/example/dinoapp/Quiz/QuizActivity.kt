@@ -1,24 +1,20 @@
 package com.example.dinoapp.Quiz
 
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.example.dinoapp.Home
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityQuizBinding
-import com.example.dinoapp.fragment.FHome
 
 // Referencias
 //https://github.com/codeforlife200/Quiz_App_Kotlin
 //https://www.youtube.com/watch?v=sv6tsU3mlHg
 
-class Quiz : AppCompatActivity() {
+class QuizActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityQuizBinding
 

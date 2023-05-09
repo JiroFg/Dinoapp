@@ -54,6 +54,6 @@ class DinoInfoActivity : AppCompatActivity() {
     }
 
     fun buttonsConf(){
-        binding.backButton.setOnClickListener { onBackPressedDispatcher.onBackPressed() }
+        binding.backButton.setOnClickListener { finish() }
     }
 }

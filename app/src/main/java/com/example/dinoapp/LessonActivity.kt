@@ -1,7 +1,11 @@
 package com.example.dinoapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import com.example.dinoapp.Memoria.JuegoMemoriaActivity
+import com.example.dinoapp.Quiz.QuizActivity
 import com.example.dinoapp.databinding.ActivityLessonBinding
 
 class LessonActivity : AppCompatActivity() {
@@ -26,5 +30,27 @@ class LessonActivity : AppCompatActivity() {
         binding.textName.text = lessonId.toString()
         binding.textInfo.text = lessonInfo
 
+        configBtns(lessonId)
+
+    }
+
+    private fun configBtns(game: Int){
+        binding.backBtn.setOnClickListener { finish() }
+
+        binding.continueBtn.setOnClickListener {
+            when(game){
+                1 -> {
+                    val intent = Intent(this,JuegoMemoriaActivity::class.java)
+                    startActivity(intent)
+                }
+                2 -> {
+                    val intent = Intent(this,QuizActivity::class.java)
+                    startActivity(intent)
+                }
+                else -> {
+                    Toast.makeText(this,"Opcion invalida", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 }

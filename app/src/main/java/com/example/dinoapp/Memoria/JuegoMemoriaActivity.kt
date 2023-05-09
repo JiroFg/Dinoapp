@@ -1,23 +1,18 @@
 package com.example.dinoapp.Memoria
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
 import android.widget.Toast
-import com.example.dinoapp.Home
-import com.example.dinoapp.Quiz.Quiz
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityJuegoMemoriaBinding
-import com.example.dinoapp.fragment.FHome
-import kotlin.properties.Delegates
 
-class juegoMemoria : AppCompatActivity() {
+class JuegoMemoriaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityJuegoMemoriaBinding
     private lateinit var botones: List<ImageButton>
-    private lateinit var cartas: List<carta>
+    private lateinit var cartas: List<Carta>
     private var cartaSeleccionada: Int? = null
     private var contador = 0
     private var tamano: Int? = null
@@ -54,7 +49,7 @@ class juegoMemoria : AppCompatActivity() {
         )
 
         cartas = botones.indices.map { index ->
-            carta(imagenes[index])
+            Carta(imagenes[index])
         }
         tamano = cartas.size
         botones.forEachIndexed { index, boton ->
