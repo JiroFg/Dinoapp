@@ -7,15 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dinoapp.DialogFilterFragment
 import com.example.dinoapp.DinoRecycler.Dino
 import com.example.dinoapp.DinoInfoActivity
 import com.example.dinoapp.DinoRecycler.DinoProvider
 import com.example.dinoapp.DinoRecycler.DinoAdapter
-import com.example.dinoapp.PopupFilterFragment
 import com.example.dinoapp.databinding.FragmentFBookBinding
+import java.util.Locale
 
 class FBook : Fragment(){
 
@@ -36,8 +36,8 @@ class FBook : Fragment(){
 
     private fun initBtn() {
         binding.filterBtn.setOnClickListener {
-            val showPopUp = PopupFilterFragment()
-            showPopUp.show((activity as AppCompatActivity).supportFragmentManager, "showPopUp")
+            val dialog = DialogFilterFragment()
+            dialog.show(requireActivity().supportFragmentManager,"cuack")
         }
     }
 
@@ -80,15 +80,17 @@ class FBook : Fragment(){
 
     fun filterList(filters: ArrayList<String>){
         val filteredList = arrayListOf<Dino>()
-        for(dino in DinoProvider.dinoList){
-            for(filter in filters) {
-                when (filter.lowercase()) {
-                    dino.dieta,
-                    dino.epoca,
-                    dino.tipo,
-                    dino.orden,
-                    dino.familia
-                    -> filteredList.add(dino)
+        if(filters.isNotEmpty()) {
+            for (dino in DinoProvider.dinoList) {
+                for (filter in filters) {
+                    when (filter) {
+                        dino.dieta.lowercase(Locale.ROOT),
+                        dino.epoca.lowercase(Locale.ROOT),
+                        dino.tipo.lowercase(Locale.ROOT),
+                        dino.orden.lowercase(Locale.ROOT),
+                        dino.familia.lowercase(Locale.ROOT)
+                        -> filteredList.add(dino)
+                    }
                 }
             }
         }

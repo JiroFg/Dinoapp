@@ -17,10 +17,10 @@ import com.example.dinoapp.fragment.FProfile
 import com.example.dinoapp.fragment.FShop
 
 
-class HomeActivity : AppCompatActivity(){
+class HomeActivity : AppCompatActivity(), InterfaceFilters{
 
     private lateinit var binding: ActivityHomeBinding
-
+    private lateinit var fBook: FBook
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class HomeActivity : AppCompatActivity(){
         val fShop = FShop()
         val fHome = FHome()
         val fProfile = FProfile()
-        val fBook = FBook()
+        fBook = FBook()
 
         //se asignan los valores por defecto
         replaceFragment(fHome)
@@ -58,11 +58,9 @@ class HomeActivity : AppCompatActivity(){
 
         val dialogButton : Button = dialog.findViewById( R.id.dialog_button )
         dialogButton.setOnClickListener {
-
             if( isNetworkAvailable() ) {
                 dialog.dismiss()
             }
-
         }
         dialog.show()
     }
@@ -87,5 +85,9 @@ class HomeActivity : AppCompatActivity(){
         if ( !isNetworkAvailable() ) {
             showDialog()
         }
+    }
+
+    override fun filtersTrans(list: ArrayList<String>) {
+        fBook.filterList(list)
     }
 }

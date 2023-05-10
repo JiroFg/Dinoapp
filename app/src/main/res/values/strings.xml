@@ -21,4 +21,16 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!-- filter list -->
+    <string-array name="filter_list">
+        <item>herbivoro</item>
+        <item>carnivoro</item>
+        <item>triasico</item>
+        <item>jurasico</item>
+        <item>cretacico</item>
+        <item>terrestre</item>
+        <item>saurisquios</item>
+        <item>ornitisquios</item>
+    </string-array>
 </resources>
