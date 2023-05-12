@@ -102,6 +102,10 @@ class FBook : Fragment(){
         }
     }
 
+    fun cleanFilters(){
+        adapter.setFilterList(DinoProvider.dinoList)
+    }
+
 
     private fun onItemSelected(dino: Dino) {
         val intent = Intent(activity, DinoInfoActivity::class.java).apply {

@@ -90,4 +90,8 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters{
     override fun filtersTrans(list: ArrayList<String>) {
         fBook.filterList(list)
     }
+
+    override fun cleanFilters() {
+        fBook.cleanFilters()
+    }
 }

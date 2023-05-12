@@ -12,7 +12,7 @@ class DialogFilterFragment : DialogFragment() {
             val filterInterface: InterfaceFilters = activity as InterfaceFilters
             val list = resources.getStringArray(R.array.filter_list)
             val selectedItems = ArrayList<String>()
-            val builder = AlertDialog.Builder(it)
+            val builder = AlertDialog.Builder(it,R.style.MyAlertDialogStyle)
             builder.setTitle("Filtros")
                 .setMultiChoiceItems(R.array.filter_list, null
                 ) { _, which, isChecked ->
@@ -34,7 +34,11 @@ class DialogFilterFragment : DialogFragment() {
                 ) { _, _ ->
                     dismiss()
                 }
-
+                .setNeutralButton("Borrar"
+                ) { _, _ ->
+                    filterInterface.cleanFilters()
+                    dismiss()
+                }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }
