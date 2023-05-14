@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragmentosRegistro.ImagenFragment">
+    tools:context=".fragmentosRegistro.ImagenFragment"
+    android:background="@color/white">
 
     <TextView
         android:id="@id/text"
@@ -12,6 +13,8 @@
         android:layout_height="wrap_content"
         android:text="@string/imagen_fragment_text"
         android:textSize="20sp"
+        android:textColor="@color/dino_text"
+        android:fontFamily="@font/poppins_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/grid"
@@ -22,7 +25,7 @@
     <GridLayout
         android:id="@+id/grid"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="500dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btn"
@@ -32,12 +35,13 @@
         android:columnCount="2"
         android:rowCount="4">
         <androidx.cardview.widget.CardView
+            android:id="@+id/card1"
             android:layout_height="0dp"
             android:layout_width="0dp"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            android:layout_margin="16dp"
-            app:cardCornerRadius="30dp">
+            app:cardCornerRadius="20dp"
+            android:background="@color/boy">
             <ImageButton
                 android:id="@+id/img_btn1"
                 android:src="@drawable/jurassic_park"
@@ -117,16 +121,22 @@
         </androidx.cardview.widget.CardView>
 
     </GridLayout>
+
     <Button
         android:id="@+id/btn"
-        android:text="@string/continue_button_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/bg_button_name"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="15dp"
+        android:shadowRadius="20"
+        android:text="@string/continue_button_text"
+        android:textColor="#FFF"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/grid"
-        android:layout_marginBottom="16dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/grid" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

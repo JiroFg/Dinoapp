@@ -15,10 +15,10 @@ class Prefs(val context: Context) {
     val PREF_SHOW_INTRO = "intro"
     val storage = context.getSharedPreferences(PREF_NAME, MODE_PRIVATE)
 
-    fun saveData(gender:Boolean,name:String,img:Int){
+    fun saveData(gender:Boolean,name:String,img:String){
         storage.edit().putBoolean(SHARED_USER_GENDER, gender).apply()
         storage.edit().putString(SHARED_USER_NAME, name).apply()
-        storage.edit().putInt(SHARED_USER_IMG, img).apply()
+        storage.edit().putString(SHARED_USER_IMG, img).apply()
     }
 
     fun editGender(gender: Boolean){
@@ -29,8 +29,8 @@ class Prefs(val context: Context) {
         storage.edit().putString(SHARED_USER_NAME, name).apply()
     }
 
-    fun editImg(img:Int){
-        storage.edit().putInt(SHARED_USER_IMG, img).apply()
+    fun editImg(img:String){
+        storage.edit().putString(SHARED_USER_IMG, img).apply()
     }
 
     fun editLvl(lvl:Int){
@@ -66,8 +66,8 @@ class Prefs(val context: Context) {
         return storage.getString(SHARED_USER_NAME,"")!!
     }
 
-    fun getImg():Int{
-        return storage.getInt(SHARED_USER_IMG, 1)
+    fun getImg():String{
+        return storage.getString(SHARED_USER_IMG, "")!!
     }
 
     fun getLvl():Int{

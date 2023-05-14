@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
     private lateinit var binding: ActivityMainBinding
     private var sexo: Boolean = false
     private var nombre: String = ""
-    private var img: Int = 1
+    private var img: String = ""
     private val adapter by lazy { ViewPagerAdapter(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
         this.nombre = nombre
     }
 
-    override fun transferirImg(img: Int) {
+    override fun transferirImg(img: String) {
         this.img = img
     }
 

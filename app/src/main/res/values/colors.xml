@@ -24,4 +24,6 @@
     <color name="family">#4CAF50</color>
     <color name="order">#F44336</color>
     <color name="dialog_background">#432A13</color>
+    <color name="boy">#2196F3</color>
+    <color name="girl">#EC407A</color>
 </resources>
