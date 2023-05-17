@@ -22,7 +22,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-<!-- filter list -->
+    <!-- filter list -->
     <string-array name="filter_list">
         <item>herbivoro</item>
         <item>carnivoro</item>
@@ -33,4 +33,13 @@
         <item>saurisquios</item>
         <item>ornitisquios</item>
     </string-array>
+    <string name="title_activity_rename_name">rename_name</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
