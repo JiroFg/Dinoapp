@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.dinoapp.ShopRecycler.ShopAdapter
+import com.example.dinoapp.ShopRecycler.ShopProvider
 import com.example.dinoapp.databinding.FragmentFShopBinding
 class FShop : Fragment() {
 
     private var _binding: FragmentFShopBinding? = null
     private val binding get() = _binding!!
-
+    private lateinit var adapter: ShopAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -31,7 +34,14 @@ class FShop : Fragment() {
                 in 950..1000 -> Toast.makeText(context, "Legendario", Toast.LENGTH_SHORT).show()
             }
         }
-
+        initRecyclerView()
         return binding.root
+    }
+
+    private fun initRecyclerView(){
+        val recyclerView = binding.recyclerShop
+        recyclerView.layoutManager = GridLayoutManager(activity,2)
+        adapter = ShopAdapter(ShopProvider.shopList)
+        recyclerView.adapter = adapter
     }
 }

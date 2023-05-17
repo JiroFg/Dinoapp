@@ -1,6 +1,6 @@
 package com.example.dinoapp.DinoRecycler
 
-class Dino (val id:Int,
+data class Dino (val id:Int,
             val nombre:String,
             val dieta:String,
             val epoca:String,
