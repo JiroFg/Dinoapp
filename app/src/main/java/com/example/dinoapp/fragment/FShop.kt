@@ -44,4 +44,7 @@ class FShop : Fragment() {
         adapter = ShopAdapter(ShopProvider.shopList)
         recyclerView.adapter = adapter
     }
+
+
+
 }

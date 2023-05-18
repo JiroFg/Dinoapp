@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
 
     override fun guardarPrefs() {
         prefs.saveData(sexo,nombre,img)
+        prefs.editCoins(45);
+
         prefs.editIntro(false)
         iniciarActividadHome()
     }

@@ -85,6 +85,9 @@ class QuizActivity : AppCompatActivity() {
 //                        intent.putExtra("Total",listaPreguntas!!.size.toString())
                         Toast.makeText(this,score.toString(),Toast.LENGTH_SHORT).show()
                         Toast.makeText(this,listaPreguntas!!.size.toString(),Toast.LENGTH_SHORT).show()
+
+                        //-------------Agregar datos a la BD Local ------------------//
+                        //-----//
                         finish()
                     }
                 }
