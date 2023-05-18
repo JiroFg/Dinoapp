@@ -18,14 +18,6 @@
             android:name=".Change_name"
             android:exported="false" />
         <activity
-            android:name=".Changename"
-            android:exported="false" />
-        <activity
-            android:name=".rename_name"
-            android:exported="false"
-            android:label="@string/title_activity_rename_name"
-            android:theme="@style/Theme.Dinoapp.NoActionBar" />
-        <activity
             android:name=".LessonActivity"
             android:exported="false" />
         <activity

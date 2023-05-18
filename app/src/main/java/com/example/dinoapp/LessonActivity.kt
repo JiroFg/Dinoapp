@@ -42,10 +42,12 @@ class LessonActivity : AppCompatActivity() {
                 1 -> {
                     val intent = Intent(this,JuegoMemoriaActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 2 -> {
                     val intent = Intent(this,QuizActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
                 else -> {
                     Toast.makeText(this,"Opcion invalida", Toast.LENGTH_SHORT).show()
