@@ -10,10 +10,13 @@ class ShopViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
     val binding = ItemShopBinding.bind(view)
 
-    fun render(item: ShopItem){
+    fun render(item: ShopItem, onClickListener: (ShopItem) -> Unit){
         val dino = DinoProvider.dinoList.filter { it.id == item.dinoID }
         Glide.with(binding.imageItemShop.context)
             .load(dino[0].img)
             .into( binding.imageItemShop)
+        binding.cardViewItemShop.setOnClickListener {
+            onClickListener(item)
+        }
     }
 }

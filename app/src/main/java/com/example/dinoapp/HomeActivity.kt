@@ -7,14 +7,21 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
+import android.util.Log
 import android.view.Window
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.dinoapp.DinoRecycler.Dino
 import com.example.dinoapp.databinding.ActivityHomeBinding
 import com.example.dinoapp.fragment.FBook
 import com.example.dinoapp.fragment.FHome
 import com.example.dinoapp.fragment.FProfile
 import com.example.dinoapp.fragment.FShop
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class HomeActivity : AppCompatActivity(), InterfaceFilters{
@@ -46,6 +53,30 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters{
             }
             true
         }
+
+        prueba()
+
+    }
+
+    private fun prueba(){
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("https://dinoapi-bior.onrender.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create<APIService>(APIService::class.java)
+        service.getDinos().enqueue(object : Callback<List<Dino>>{
+            override fun onResponse(call: Call<List<Dino>>, response: Response<List<Dino>>) {
+                val dinos = response.body()
+                dinos?.forEach{
+                    Log.d("PRUEBA", it.toString())
+                }
+            }
+
+            override fun onFailure(call: Call<List<Dino>>, t: Throwable) {
+                t?.printStackTrace()
+            }
+
+        })
     }
 
     private fun showDialog() {

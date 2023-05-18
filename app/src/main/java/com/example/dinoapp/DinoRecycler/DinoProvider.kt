@@ -1,6 +1,8 @@
 package com.example.dinoapp.DinoRecycler
 
-class DinoProvider {
+
+class DinoProvider(){
+
     companion object{
         val dinoList = listOf<Dino>(
             Dino(1,"Tiranousario rex","Carnivoro","Cretacico","Terrestre","Saurisquios", "Tiranosauridos",7f,12f,"https://www.sideshow.com/storage/product-images/903202/t-rex__square.jpg"),
