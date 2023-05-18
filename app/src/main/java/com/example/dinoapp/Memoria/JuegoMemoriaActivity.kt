@@ -54,8 +54,7 @@ class JuegoMemoriaActivity : AppCompatActivity() {
         tamano = cartas.size
         botones.forEachIndexed { index, boton ->
             boton.setOnClickListener {
-                Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
-                activarContinuar()
+//                Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
                 // Actualizar los modelos
                 actualizarModelos(index)
                 // Actulizar UI
@@ -64,7 +63,7 @@ class JuegoMemoriaActivity : AppCompatActivity() {
         }
 
         binding.botonSalir.setOnClickListener{
-            Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
 //            val intent = Intent(this, Home::class.java)
 //            startActivity(intent)
             finish()
@@ -119,7 +118,7 @@ class JuegoMemoriaActivity : AppCompatActivity() {
             Toast.makeText(this,"Felicidades son iguales", Toast.LENGTH_SHORT).show()
             cartas[pos1].isMatched = true
             cartas[pos2].isMatched = true
-
+            activarContinuar()
         }
     }
 
