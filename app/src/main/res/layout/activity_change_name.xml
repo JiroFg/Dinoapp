@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     android:background="#fff"
     tools:context=".Change_name">
+
+    <ImageView
+        android:id="@+id/btn_atras"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_btn_edit"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/nombre_text"
         android:layout_width="wrap_content"

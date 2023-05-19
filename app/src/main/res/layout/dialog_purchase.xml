@@ -1,33 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="32dp"
-    android:orientation="vertical"
-    android:gravity="center">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/dialogText"
+    <LinearLayout
+        android:id="@+id/dd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="nombre dino"/>
+        android:background="@drawable/bg_racha"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_racha2"
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:cardCornerRadius="30dp">
-        <ImageButton
-            android:id="@+id/dialogImg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:background="@color/black"/>
-    </androidx.cardview.widget.CardView>
+            android:padding="25dp"
+            >
+            <TextView
+                android:id="@+id/nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+                android:text="¡Atención!"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="26dp"
+                android:fontFamily="@font/poppins_bold"
+                />
 
-    <Button
-        android:id="@+id/dialogBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Comprar"/>
-</LinearLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/premio"
+                android:layout_width="194dp"
+                android:layout_height="110dp"
+                android:src="@drawable/dilo"
+                app:civ_border_color="#FFF" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:text="¿Seguro que quieres comprar este dinosaurio?\n"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:fontFamily="@font/poppins_regular"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/dialog_aceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_button_racha"
+                android:fontFamily="@font/poppins_medium"
+                android:lineHeight="20dp"
+                android:paddingHorizontal="30dp"
+                android:paddingVertical="5dp"
+                android:shadowRadius="20"
+                android:text="Cancelar"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:cornerRadius="25dp" />
+
+            <Button
+                android:id="@+id/dino_comprar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn"
+                android:fontFamily="@font/poppins_medium"
+                android:lineHeight="20dp"
+                android:paddingHorizontal="25dp"
+                android:paddingVertical="5dp"
+                android:shadowRadius="20"
+                android:text="Comprar"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:cornerRadius="25dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

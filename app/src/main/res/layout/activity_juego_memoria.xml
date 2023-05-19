@@ -8,181 +8,186 @@
     android:background="@android:color/background_light"
     tools:context=".Memoria.JuegoMemoriaActivity">
 
-    <ImageButton
+
+    <ImageView
         android:id="@+id/botonSalir"
-        android:layout_width="21dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="32dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/cancel"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_btn_edit"
+        android:src="@drawable/arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
+        android:id="@+id/boton5"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cartavolteada"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.409" />
+
+    <ImageButton
+        android:id="@+id/boton10"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cartavolteada"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.123"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.823" />
+
+    <ImageButton
         android:id="@+id/boton2"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222" />
-
-    <ImageButton
-        android:id="@+id/boton10"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/cartavolteada"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
+        app:layout_constraintVertical_bias="0.208" />
 
     <ImageButton
         android:id="@+id/boton6"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449" />
+        app:layout_constraintVertical_bias="0.409" />
 
     <ImageButton
         android:id="@+id/boton7"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.611" />
 
     <ImageButton
         android:id="@+id/boton12"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
-
-    <ImageButton
-        android:id="@+id/boton9"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/cartavolteada"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.899"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.823" />
 
     <ImageButton
         android:id="@+id/boton8"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.652" />
+        app:layout_constraintVertical_bias="0.611" />
+
+    <ImageButton
+        android:id="@+id/boton9"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cartavolteada"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.611" />
 
     <ImageButton
         android:id="@+id/boton4"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449" />
+        app:layout_constraintVertical_bias="0.409" />
 
     <ImageButton
         android:id="@+id/boton1"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.122"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222" />
+        app:layout_constraintVertical_bias="0.208" />
 
     <ImageButton
         android:id="@+id/boton11"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.864" />
+        app:layout_constraintVertical_bias="0.823" />
 
     <ImageButton
         android:id="@+id/boton3"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
+        android:layout_width="78dp"
+        android:layout_height="113dp"
         android:background="@android:color/transparent"
         android:scaleType="centerCrop"
         android:src="@drawable/cartavolteada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222" />
-
-    <ImageButton
-        android:id="@+id/boton5"
-        android:layout_width="93dp"
-        android:layout_height="97dp"
-        android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/cartavolteada"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.449" />
+        app:layout_constraintVertical_bias="0.208" />
 
     <TextView
         android:id="@+id/textRacha"
@@ -194,31 +199,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <Button
         android:id="@+id/btn_continuar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="183dp"
+        android:layout_height="53dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_button_racha"
+        android:fontFamily="@font/poppins_medium"
+        android:lineHeight="20dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="5dp"
+        android:shadowRadius="20"
         android:text="Continuar"
+        android:textAllCaps="false"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:cornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boton11"
+        app:layout_constraintVertical_bias="0.483" />
 
     <ImageButton
         android:id="@+id/btn_ayuda"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="8dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_btn_edit"
         android:src="@android:drawable/ic_menu_help"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.977"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

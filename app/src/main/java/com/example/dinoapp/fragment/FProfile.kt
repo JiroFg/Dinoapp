@@ -40,7 +40,6 @@ class FProfile : Fragment() {
         binding.btnEdiName.setOnClickListener {
             val intent = Intent(activity, Change_name::class.java)
             startActivity(intent)
-            activity?.onBackPressed()
         }
     }
     fun addInformationUser() {

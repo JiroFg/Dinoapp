@@ -16,7 +16,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_btn_edit"
-        android:src="@drawable/cancel"
+        android:src="@drawable/arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -162,12 +162,12 @@
 
     <ImageButton
         android:id="@+id/btn_ayuda"
-        android:layout_width="46dp"
-        android:layout_height="46dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="8dp"
         android:src="@android:drawable/ic_menu_help"
-        android:background="@android:color/transparent"
+        android:background="@drawable/bg_btn_edit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.977"

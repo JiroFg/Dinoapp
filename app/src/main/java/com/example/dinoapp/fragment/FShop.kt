@@ -1,12 +1,15 @@
 package com.example.dinoapp.fragment
 
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -37,7 +40,10 @@ class FShop : Fragment() {
             val randomNumber = (1..1000).random()
 
             when(randomNumber) {
-                in 1..600 -> Toast.makeText(context, "Comun", Toast.LENGTH_SHORT).show()
+                in 1..600 -> {
+                    Toast.makeText(context, "Comun", Toast.LENGTH_SHORT).show()
+                    showDialogPremio1()
+                }
                 in 601..800 -> Toast.makeText(context, "No común", Toast.LENGTH_SHORT).show()
                 in 801..949 -> Toast.makeText(context, "Raro", Toast.LENGTH_SHORT).show()
                 in 950..1000 -> Toast.makeText(context, "Legendario", Toast.LENGTH_SHORT).show()
@@ -58,9 +64,10 @@ class FShop : Fragment() {
         Log.d("PRUEBA","ENTRO")
         val dialog = Dialog(requireActivity())
         dialog.setContentView(R.layout.dialog_purchase)
-        val dialogText: TextView = dialog.findViewById(R.id.dialogText)
-        val dialogImg: ImageView = dialog.findViewById(R.id.dialogImg)
-        val dialogBtn: Button = dialog.findViewById(R.id.dialogBtn)
+        val dialogText: TextView = dialog.findViewById(R.id.nombre)
+        val dialogImg: ImageView = dialog.findViewById(R.id.premio)
+        val dialogBtn: Button = dialog.findViewById(R.id.dino_comprar)
+        val dialogBtn_Cancelar: Button = dialog.findViewById(R.id.dialog_aceptar)
 
         val dino = DinoProvider.dinoList.filter { it.id == item.dinoID }
         dialogText.text = dino[0].nombre
@@ -69,7 +76,25 @@ class FShop : Fragment() {
             .into(dialogImg)
         dialogBtn.setOnClickListener {
             item.purshased = true
+            dialog.dismiss()
+        }
+        dialogBtn_Cancelar.setOnClickListener {
+            dialog.dismiss()
         }
         dialog.show()
+    }
+
+    private fun showDialogPremio1() {
+
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
+//        dialog.setCancelable( true )
+        dialog.setContentView( R.layout.dialog_premio1 )
+        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ) )
+
+        val dialogButton : Button = dialog.findViewById( R.id.dialog_aceptar )
+        dialogButton.setOnClickListener {
+                dialog.dismiss()
+        }
     }
 }

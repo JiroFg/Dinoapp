@@ -70,17 +70,15 @@ class JuegoMemoriaActivity : AppCompatActivity() {
         }
     }
     fun activarContinuar(){
-//        Toast.makeText(this,contador.toString(), Toast.LENGTH_SHORT).show()
-//        Log.d("PRUEBA", contador.toString())
         contador = 0
         for (carta in cartas){
             if (carta.isMatched == true){
                 contador ++
-                Log.d("PRUEBA", contador.toString())
             }
             if (contador == tamano){
                 binding.btnContinuar.isClickable = true
                 binding.btnContinuar.isEnabled = true
+                binding.btnContinuar.setBackgroundResource(R.drawable.btn)
             }
         }
     }

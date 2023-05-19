@@ -29,5 +29,9 @@ class Change_name : AppCompatActivity() {
                 Toast.makeText(this, "Ingresa un nombre", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.btnAtras.setOnClickListener {
+            finish()
+        }
     }
 }
