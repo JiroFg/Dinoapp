@@ -1,12 +1,18 @@
 package com.example.dinoapp.Quiz
 
+import android.app.Dialog
 import android.graphics.Color
 import android.graphics.Typeface
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
+import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityQuizBinding
 
@@ -97,17 +103,12 @@ class QuizActivity : AppCompatActivity() {
 
         binding.btnAtras.setOnClickListener{
             Toast.makeText(this,"click", Toast.LENGTH_SHORT).show()
-//            val intent = Intent(this, Home::class.java)
-//            startActivity(intent)
             finish()
         }
+        binding.btnAyuda.setOnClickListener {
+            showDialogAyuda()
+        }
 
-//        binding.btnContinuar.setOnClickListener {
-//            if (binding.btnContinuar.text=="Terminar"){
-//                val intent = Intent(this, Home::class.java)
-//                startActivity(intent)
-//            }
-//        }
     }
 
     fun activarBtn(){
@@ -179,5 +180,23 @@ class QuizActivity : AppCompatActivity() {
         view.typeface = Typeface.DEFAULT_BOLD
         view.setTextColor(Color.parseColor("#000000"))
         activarBtn()
+    }
+
+    private fun showDialogAyuda() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
+        dialog.setContentView( R.layout.dialog_ayuda_activity )
+        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ))
+//        val videoView: VideoView = dialog.findViewById( R.id.video )
+//        val videoUri = Uri.parse("android.resource://" + packageName + "/raw/memoriavideo")
+//        videoView.setVideoURI(videoUri)
+//        videoView.start()
+        val gif: ImageView = dialog.findViewById( R.id.gif )
+        Glide.with(this).asGif().load(R.raw.quiz).into(gif)
+        val dialogButton : Button = dialog.findViewById( R.id.dialog_aceptar )
+        dialogButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
     }
 }

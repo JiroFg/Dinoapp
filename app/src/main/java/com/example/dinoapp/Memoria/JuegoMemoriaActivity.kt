@@ -1,10 +1,16 @@
 package com.example.dinoapp.Memoria
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.Window
+import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityJuegoMemoriaBinding
 
@@ -21,6 +27,7 @@ class JuegoMemoriaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityJuegoMemoriaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         binding.btnContinuar.isClickable = false
         binding.btnContinuar.isEnabled = false
@@ -67,6 +74,10 @@ class JuegoMemoriaActivity : AppCompatActivity() {
 //            val intent = Intent(this, Home::class.java)
 //            startActivity(intent)
             finish()
+        }
+
+        binding.btnAyuda.setOnClickListener {
+            showDialogAyuda()
         }
     }
     fun activarContinuar(){
@@ -128,5 +139,23 @@ class JuegoMemoriaActivity : AppCompatActivity() {
             }
             boton.setImageResource(if (carta.isFaceUp) carta.id else R.drawable.cartavolteada)
         }
+    }
+
+    private fun showDialogAyuda() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
+        dialog.setContentView( R.layout.dialog_ayuda_activity )
+        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ))
+//        val videoView: VideoView = dialog.findViewById( R.id.video )
+//        val videoUri = Uri.parse("android.resource://" + packageName + "/raw/memoriavideo")
+//        videoView.setVideoURI(videoUri)
+//        videoView.start()
+        val gif: ImageView = dialog.findViewById( R.id.gif )
+        Glide.with(this).asGif().load(R.raw.memoria).into(gif)
+        val dialogButton : Button = dialog.findViewById( R.id.dialog_aceptar )
+        dialogButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
     }
 }
