@@ -11,6 +11,7 @@ import com.example.dinoapp.LessonActivity
 import com.example.dinoapp.LessonRecycler.Lesson
 import com.example.dinoapp.LessonRecycler.LessonAdapter
 import com.example.dinoapp.LessonRecycler.LessonProvider
+import com.example.dinoapp.MainActivity
 import com.example.dinoapp.databinding.FragmentFHomeBinding
 
 class FHome : Fragment() {
@@ -26,7 +27,7 @@ class FHome : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFHomeBinding.inflate(inflater, container, false)
-
+        addInformationUser()
         initRecyclerView()
 
         return binding.root
@@ -45,5 +46,9 @@ class FHome : Fragment() {
             putExtra(LessonActivity.LESSON_INFO, lesson.info)
         }
         startActivity(intent)
+    }
+
+    fun addInformationUser() {
+        binding.name.text = MainActivity.prefs.getName()
     }
 }

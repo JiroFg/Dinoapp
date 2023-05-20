@@ -113,10 +113,12 @@ class QuizActivity : AppCompatActivity() {
     fun activarBtn(){
         binding.btnContinuar.isEnabled = true
         binding.btnContinuar.isClickable = true
-//        "@drawable/bg_button_racha"
+        binding.btnContinuar.setBackgroundResource(R.drawable.btn)
     }
 
     fun desactivarBtn(){
+        binding.btnContinuar.setBackgroundResource(R.drawable.bg_button_racha)
+        binding.btnContinuar.setText("Continuar")
         binding.btnContinuar.isEnabled = false
         binding.btnContinuar.isClickable = false
     }

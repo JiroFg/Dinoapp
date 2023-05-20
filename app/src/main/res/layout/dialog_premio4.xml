@@ -65,7 +65,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/bg_button_racha"
+                android:background="@drawable/btn"
                 android:fontFamily="@font/poppins_medium"
                 android:lineHeight="20dp"
                 android:paddingHorizontal="30dp"

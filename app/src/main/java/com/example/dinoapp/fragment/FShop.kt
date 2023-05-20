@@ -17,6 +17,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
 import com.example.dinoapp.DinoRecycler.DinoProvider
+import com.example.dinoapp.MainActivity
+import com.example.dinoapp.MainActivity.Companion.prefs
 import com.example.dinoapp.R
 import com.example.dinoapp.ShopRecycler.ShopAdapter
 import com.example.dinoapp.ShopRecycler.ShopItem
@@ -36,6 +38,7 @@ class FShop : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFShopBinding.inflate(inflater,container,false)
+        addInformationUser()
         binding.btnRuleta.setOnClickListener {
             val randomNumber = (1..1000).random()
 
@@ -44,9 +47,18 @@ class FShop : Fragment() {
                     Toast.makeText(context, "Comun", Toast.LENGTH_SHORT).show()
                     showDialogPremio1()
                 }
-                in 601..800 -> Toast.makeText(context, "No común", Toast.LENGTH_SHORT).show()
-                in 801..949 -> Toast.makeText(context, "Raro", Toast.LENGTH_SHORT).show()
-                in 950..1000 -> Toast.makeText(context, "Legendario", Toast.LENGTH_SHORT).show()
+                in 601..800 ->{
+                    Toast.makeText(context, "No común", Toast.LENGTH_SHORT).show()
+                    showDialogPremio2()
+                }
+                in 801..949 -> {
+                    Toast.makeText(context, "Raro", Toast.LENGTH_SHORT).show()
+                    showDialogPremio3()
+                }
+                in 950..1000 -> {
+                    Toast.makeText(context, "Legendario", Toast.LENGTH_SHORT).show()
+                    showDialogPremio4()
+                }
             }
         }
         initRecyclerView()
@@ -85,9 +97,8 @@ class FShop : Fragment() {
     }
 
     private fun showDialogPremio1() {
-
         val dialog = Dialog(requireContext())
-        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
+//        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
 //        dialog.setCancelable( true )
         dialog.setContentView( R.layout.dialog_premio1 )
         dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ) )
@@ -96,5 +107,49 @@ class FShop : Fragment() {
         dialogButton.setOnClickListener {
                 dialog.dismiss()
         }
+        dialog.show()
+    }
+    private fun showDialogPremio2() {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
+//        dialog.setCancelable( true )
+        dialog.setContentView( R.layout.dialog_premio2 )
+        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ) )
+
+        val dialogButton : Button = dialog.findViewById( R.id.dialog_aceptar )
+        dialogButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+    private fun showDialogPremio3() {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
+//        dialog.setCancelable( true )
+        dialog.setContentView( R.layout.dialog_premio3 )
+        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ) )
+
+        val dialogButton : Button = dialog.findViewById( R.id.dialog_aceptar )
+        dialogButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+    private fun showDialogPremio4() {
+        val dialog = Dialog(requireContext())
+        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
+//        dialog.setCancelable( true )
+        dialog.setContentView( R.layout.dialog_premio4 )
+        dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ) )
+
+        val dialogButton : Button = dialog.findViewById( R.id.dialog_aceptar )
+        dialogButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    fun addInformationUser() {
+        binding.name.text = prefs.getName()
     }
 }

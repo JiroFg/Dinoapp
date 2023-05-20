@@ -22,8 +22,6 @@ class Change_name : AppCompatActivity() {
         binding.buttonChange.setOnClickListener{
             if (binding.inputEditName.text.toString().isNotEmpty()) {
                 prefs.editName(binding.inputEditName.text.toString())
-                val intent = Intent(this, HomeActivity::class.java)
-                startActivity(intent)
                 finish()
             }else {
                 Toast.makeText(this, "Ingresa un nombre", Toast.LENGTH_SHORT).show()
