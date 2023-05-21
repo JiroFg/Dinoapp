@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dinoapp.DialogFilterFragment
 import com.example.dinoapp.DinoRecycler.Dino
 import com.example.dinoapp.DinoInfoActivity
-import com.example.dinoapp.DinoRecycler.DinoProvider
 import com.example.dinoapp.DinoRecycler.DinoAdapter
+import com.example.dinoapp.HomeActivity
 import com.example.dinoapp.databinding.FragmentFBookBinding
 import java.util.Locale
 
@@ -44,7 +44,7 @@ class FBook : Fragment(){
     private fun initRecyclerView(){
         val recyclerView = binding.recyclerDinos
         recyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = DinoAdapter(DinoProvider.dinoList){onItemSelected(it)}
+        adapter = DinoAdapter(HomeActivity.dinoData){onItemSelected(it)}
         recyclerView.adapter = adapter
     }
 
@@ -64,7 +64,7 @@ class FBook : Fragment(){
     private fun searchList(query:String?){
         if(query!=null){
             val searchedList = arrayListOf<Dino>()
-            for(dino in DinoProvider.dinoList){
+            for(dino in HomeActivity.dinoData){
                 if(dino.nombre.lowercase().contains(query)){
                     searchedList.add(dino)
                 }
@@ -81,7 +81,7 @@ class FBook : Fragment(){
     fun filterList(filters: ArrayList<String>){
         val filteredList = arrayListOf<Dino>()
         if(filters.isNotEmpty()) {
-            for (dino in DinoProvider.dinoList) {
+            for (dino in HomeActivity.dinoData) {
                 for (filter in filters) {
                     when (filter) {
                         dino.dieta.lowercase(Locale.ROOT),
@@ -103,7 +103,7 @@ class FBook : Fragment(){
     }
 
     fun cleanFilters(){
-        adapter.setFilterList(DinoProvider.dinoList)
+        adapter.setFilterList(HomeActivity.dinoData)
     }
 
 

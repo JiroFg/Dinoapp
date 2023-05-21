@@ -1,7 +1,8 @@
 package com.example.dinoapp.LessonRecycler
 
 data class Lesson(
-    val ID: Int,
-    val dinoID: Int,
-    val info: String
+    val idDino: Int,
+    val idLeccion: Int,
+    val info: String,
+    val actividad: Int
 )

@@ -16,8 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
-import com.example.dinoapp.DinoRecycler.DinoProvider
-import com.example.dinoapp.MainActivity
+import com.example.dinoapp.HomeActivity
 import com.example.dinoapp.MainActivity.Companion.prefs
 import com.example.dinoapp.R
 import com.example.dinoapp.ShopRecycler.ShopAdapter
@@ -81,7 +80,7 @@ class FShop : Fragment() {
         val dialogBtn: Button = dialog.findViewById(R.id.dino_comprar)
         val dialogBtn_Cancelar: Button = dialog.findViewById(R.id.dialog_aceptar)
 
-        val dino = DinoProvider.dinoList.filter { it.id == item.dinoID }
+        val dino = HomeActivity.dinoData.filter { it.id == item.dinoID }
         dialogText.text = dino[0].nombre
         Glide.with(requireActivity())
             .load(dino[0].img)

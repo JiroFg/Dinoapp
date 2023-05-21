@@ -9,7 +9,7 @@ class LessonViewHolder(val view: View): RecyclerView.ViewHolder(view) {
     val binding = ItemLessonBinding.bind(view)
 
     fun render(lessonModel: Lesson, onClickListener:(Lesson)->Unit){
-        binding.btn.text = lessonModel.ID.toString()
+        binding.btn.text = lessonModel.idLeccion.toString()
         binding.btn.setOnClickListener { onClickListener(lessonModel) }
     }
 

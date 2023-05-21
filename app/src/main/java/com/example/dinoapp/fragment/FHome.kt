@@ -7,10 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dinoapp.HomeActivity
 import com.example.dinoapp.LessonActivity
 import com.example.dinoapp.LessonRecycler.Lesson
 import com.example.dinoapp.LessonRecycler.LessonAdapter
-import com.example.dinoapp.LessonRecycler.LessonProvider
 import com.example.dinoapp.MainActivity
 import com.example.dinoapp.databinding.FragmentFHomeBinding
 
@@ -36,13 +36,13 @@ class FHome : Fragment() {
     private fun initRecyclerView() {
         val recyclerView = binding.recyclerLevels
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = LessonAdapter(LessonProvider.lessonList) { onItemSelected(it) }
+        recyclerView.adapter = LessonAdapter(HomeActivity.lessonData) { onItemSelected(it) }
     }
 
     fun onItemSelected(lesson: Lesson) {
         val intent = Intent(activity, LessonActivity::class.java).apply {
-            putExtra(LessonActivity.LESSON_ID, lesson.ID)
-            putExtra(LessonActivity.LESSON_DINO_ID, lesson.dinoID)
+            putExtra(LessonActivity.LESSON_ID, lesson.idLeccion)
+            putExtra(LessonActivity.LESSON_DINO_ID, lesson.idDino)
             putExtra(LessonActivity.LESSON_INFO, lesson.info)
         }
         startActivity(intent)

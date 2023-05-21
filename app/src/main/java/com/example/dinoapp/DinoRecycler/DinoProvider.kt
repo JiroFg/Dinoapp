@@ -1,14 +1,35 @@
 package com.example.dinoapp.DinoRecycler
 
+import android.util.Log
+import com.example.dinoapp.APIService
+import com.example.dinoapp.HomeActivity
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
 
 class DinoProvider(){
-
-    companion object{
-        val dinoList = listOf<Dino>(
-            Dino(1,"Tiranousario rex","Carnivoro","Cretacico","Terrestre","Saurisquios", "Tiranosauridos",7f,12f,"https://www.sideshow.com/storage/product-images/903202/t-rex__square.jpg"),
-            Dino(2,"Velociraptor","Carnivoro","Jurasico","Terrestre","Saurisquios", "Dromeosauridos",0.02f, 1.8f,"https://www.todayifoundout.com/wp-content/uploads/2010/07/Velociraptor_dinoguy2-e1278512800396.jpg"),
-            Dino(3,"Triceratops","Herbivoro","Cretacico","Terrestre","Ornitisquios", "Ceratopsidos",6f,8f,"https://static01.nyt.com/images/2021/01/08/science/08TB-DINOSEED1/08TB-DINOSEED1-mediumSquareAt3X.jpg"),
-            Dino(4,"Estegosaurio","Herbivoro","Jurasico","Terrestre","Ornitisquios", "Estegosauridos",6f,9f,"https://i.natgeofe.com/k/979e0635-1731-411e-b26d-ff413f9b60be/stegosaurus-side_square.jpg"),
-        )
+    companion object {
+        fun cargarDinos() {
+            val retrofit: Retrofit = Retrofit.Builder()
+                .baseUrl("https://dinoapi-bior.onrender.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            val service = retrofit.create<APIService>(APIService::class.java)
+            service.getDinos().enqueue(object : Callback<List<Dino>> {
+                override fun onResponse(call: Call<List<Dino>>, response: Response<List<Dino>>) {
+                    val dinos = response.body()
+                    dinos?.forEach {
+                        Log.d("PRUEBA", it.toString())
+                        HomeActivity.dinoData.add(it)
+                    }
+                }
+                override fun onFailure(call: Call<List<Dino>>, t: Throwable) {
+                    t?.printStackTrace()
+                }
+            })
+        }
     }
 }
