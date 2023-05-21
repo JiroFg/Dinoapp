@@ -22,8 +22,7 @@ class dbHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
 
         const val SQL_CREATE_LOCAL = "CREATE TABLE ${DbContract.FeedEntry.TABLE_NAME} (" +
                 "${BaseColumns._ID} INTEGER PRIMARY KEY," +
-                "${DbContract.FeedEntry.COLUMN_NAME_DINO_ID} INTEGER,"+
-                "${DbContract.FeedEntry.COLUMN_NAME_PURSHASED} BOOLEAN)"
+                "${DbContract.FeedEntry.COLUMN_NAME_DINO_ID} INTEGER)"
         const val SQL_DELETE_LOCAL = "DROP TABLE IF EXISTS ${DbContract.FeedEntry.TABLE_NAME}"
     }
 

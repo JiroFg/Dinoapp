@@ -16,4 +16,8 @@ class DinoViewHolder(view:View): RecyclerView.ViewHolder(view){
             onClickListener(dino)
         }
     }
+
+    fun lockRender(){
+        Glide.with(binding.imageDino.context).load("https://indyme.com/wp-content/uploads/2020/11/lock-icon.png").into(binding.imageDino)
+    }
 }

@@ -3,6 +3,7 @@ package com.example.dinoapp.DinoRecycler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dinoapp.HomeActivity
 import com.example.dinoapp.R
 
 class DinoAdapter(private var dinoList:List<Dino>, private val onClickListener: (Dino) -> Unit) : RecyclerView.Adapter<DinoViewHolder>(){
@@ -16,7 +17,12 @@ class DinoAdapter(private var dinoList:List<Dino>, private val onClickListener: 
 
     override fun onBindViewHolder(holder: DinoViewHolder, position: Int) {
         val item = dinoList[position]
-        holder.render(item, onClickListener)
+        val filter = HomeActivity.shopData.filter { it.DinoID == item.id }
+        if(filter.isNotEmpty()) {
+            holder.render(item, onClickListener)
+        }else{
+            holder.lockRender()
+        }
     }
 
     fun setFilterList(list: List<Dino>){
