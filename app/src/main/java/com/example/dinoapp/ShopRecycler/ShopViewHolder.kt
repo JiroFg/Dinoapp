@@ -1,9 +1,12 @@
 package com.example.dinoapp.ShopRecycler
 
 import android.view.View
+import androidx.core.content.ContextCompat
+import androidx.core.view.setPadding
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dinoapp.DinoRecycler.Dino
+import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ItemShopBinding
 
 class ShopViewHolder(view: View): RecyclerView.ViewHolder(view) {
@@ -14,14 +17,16 @@ class ShopViewHolder(view: View): RecyclerView.ViewHolder(view) {
         Glide.with(binding.imageItemShop.context)
             .load(item.img)
             .into( binding.imageItemShop)
-        binding.cardViewItemShop.setOnClickListener {
+        binding.imageItemShop.setBackgroundColor(ContextCompat.getColor(binding.imageItemShop.context, R.color.white))
+        binding.itemShop.setOnClickListener {
             onClickListener(item)
         }
     }
 
     fun unlockRender(){
-        Glide.with(binding.imageItemShop.context)
-            .load("https://cms-assets.tutsplus.com/cdn-cgi/image/width=630/uploads/users/523/posts/32694/final_image/tutorial-preview-large.png")
-            .into( binding.imageItemShop)
+        binding.imageItemShop.setImageResource(R.drawable.ic_check)
+        binding.imageItemShop.setPadding(56)
+        binding.imageItemShop.setBackgroundColor(ContextCompat.getColor(binding.imageItemShop.context, R.color.green))
+        binding.textPrecio.text = binding.textPrecio.context.getString(R.string.purchased)
     }
 }

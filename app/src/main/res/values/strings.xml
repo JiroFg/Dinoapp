@@ -21,17 +21,20 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lock">Bloqueado</string>
+    <string name="purchased">Adquirido</string>
 
     <!-- filter list -->
     <string-array name="filter_list">
-        <item>herbivoro</item>
-        <item>carnivoro</item>
-        <item>triasico</item>
-        <item>jurasico</item>
-        <item>cretacico</item>
+        <item>herbívoro</item>
+        <item>carnívoro</item>
+        <item>triásico</item>
+        <item>jurásico</item>
+        <item>cretácico</item>
         <item>terrestre</item>
-        <item>saurisquios</item>
-        <item>ornitisquios</item>
+        <item>saurischia</item>
+        <item>ornithischia</item>
+        <item>dilophosauridae</item>
     </string-array>
 
 </resources>

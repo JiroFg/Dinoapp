@@ -26,4 +26,6 @@
     <color name="dialog_background">#432A13</color>
     <color name="boy">#2196F3</color>
     <color name="girl">#EC407A</color>
+    <color name="lock_gray">#C3C3C3</color>
+    <color name="lock_background">#606060</color>
 </resources>

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.dinoapp.Memoria.JuegoMemoriaActivity
 import com.example.dinoapp.Quiz.QuizActivity
 import com.example.dinoapp.databinding.ActivityLessonBinding
@@ -27,7 +28,11 @@ class LessonActivity : AppCompatActivity() {
         val lessonDinoId = intent.getIntExtra(LESSON_DINO_ID, 0)
         val lessonInfo = intent.getStringExtra(LESSON_INFO)
 
-        binding.textName.text = lessonId.toString()
+        val dino = HomeActivity.dinoData.filter { it.id == lessonDinoId }
+
+        binding.textName.text = dino[0].nombre
+        binding.img
+        Glide.with(binding.img.context).load(dino[0].img).into(binding.img)
         binding.textInfo.text = lessonInfo
 
         configBtns(lessonId)

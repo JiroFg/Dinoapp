@@ -79,6 +79,7 @@ class FShop : Fragment() {
         recyclerView.adapter = adapter
     }
 
+    //Metodo cuando un elemento del recycler view de la tienda es seleccionado
     private fun onItemSelected(dinoItem: Dino) {
         val dialog = Dialog(requireActivity())
         dialog.setContentView(R.layout.dialog_purchase)

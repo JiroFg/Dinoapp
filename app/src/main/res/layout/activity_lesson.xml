@@ -76,10 +76,12 @@
             android:id="@+id/textInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Esto es un ejemplo de la información que contrandra nuestra lección bla bla
-blalbalblalbldalfljdalfjdsalfjd hola como estas como te va"
-            android:textSize="16sp"
-            android:layout_gravity="center_horizontal"/>
+            tools:text="ejemplo"
+            android:textSize="18sp"
+            android:textColor="@color/dino_text"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:justificationMode="inter_word"/>
     </androidx.cardview.widget.CardView>
 
     <Button
