@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
+    android:background="@color/white"
     android:orientation="vertical"
     tools:context=".Quiz.QuizActivity">
 
@@ -41,6 +42,8 @@
             android:layout_weight="1"
             android:max="5"
             android:minHeight="50dp"
+            android:progressTint="@color/green"
+            android:backgroundTint="@color/green"
             android:progress="0" />
 
         <TextView
@@ -61,8 +64,8 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="¿Pregunta?"
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:textColor="@color/dino_text"
+        android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -89,6 +92,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="Opcion 1"
+        android:fontFamily="@font/poppins_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +108,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="Opcion 2"
+        android:fontFamily="@font/poppins_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -118,6 +123,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="Opcion 3"
+        android:fontFamily="@font/poppins_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,6 +138,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="Opcion 4"
+        android:fontFamily="@font/poppins_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -141,24 +148,24 @@
     <Button
         android:id="@+id/btn_continuar"
         android:layout_width="201dp"
-        android:layout_height="49dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/bg_button_racha"
         android:fontFamily="@font/poppins_medium"
         android:lineHeight="20dp"
         android:paddingHorizontal="30dp"
-        android:paddingVertical="5dp"
+        android:paddingVertical="15dp"
         android:shadowRadius="20"
         android:text="Continuar"
         android:textAllCaps="false"
         android:textColor="#fff"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
+        app:layout_constraintVertical_bias="0.91" />
 
     <ImageButton
         android:id="@+id/btn_ayuda"

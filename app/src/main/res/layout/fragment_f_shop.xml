@@ -44,7 +44,7 @@
                 android:id="@+id/btn_ruleta"
                 android:layout_width="155dp"
                 android:layout_height="68dp"
-                android:layout_marginTop="260dp"
+                android:layout_marginTop="320dp"
                 android:background="@drawable/btn"
                 android:fontFamily="@font/poppins_medium"
                 android:shadowRadius="20"
