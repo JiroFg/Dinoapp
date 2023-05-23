@@ -18,6 +18,7 @@ class ShopViewHolder(view: View): RecyclerView.ViewHolder(view) {
             .load(item.img)
             .into( binding.imageItemShop)
         binding.imageItemShop.setBackgroundColor(ContextCompat.getColor(binding.imageItemShop.context, R.color.white))
+        binding.textPrecio.text = "$${item.precio}"
         binding.itemShop.setOnClickListener {
             onClickListener(item)
         }

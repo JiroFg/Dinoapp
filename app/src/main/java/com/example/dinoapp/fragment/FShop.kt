@@ -47,18 +47,24 @@ class FShop : Fragment() {
         //metodo para colocar la información del usuario en la TopBar
         //Listener cuando presionas el botón para girar la ruleta
         binding.btnRuleta.setOnClickListener {
-            prefs.editCoins(prefs.getCoins()-20)
-            addInformationUser()
-            girarRuleta()
+            if (prefs.getCoins() >= 20) {
+                prefs.editCoins(prefs.getCoins() - 20)
+                addInformationUser()
+                girarRuleta()
+            }else{
+                Toast.makeText(context,"Huesitos insuficientes",Toast.LENGTH_SHORT).show()
+            }
         }
         // boton que muestra los premios de la ruleta
         binding.Premios.setOnClickListener {
+            prefs.editCoins(1000)
             showDialogPremios()
         }
         initRecyclerView()
         addInformationUser()
         return binding.root
     }
+
     //metodo para inicializar el RecyclerView que dibuja los dinosaurios disponibles en la tienda
     private fun initRecyclerView() {
         val recyclerView = binding.recyclerShop
@@ -85,6 +91,7 @@ class FShop : Fragment() {
         //listener del boton si acepta la compra
         dialogBtn.setOnClickListener {
             comprarDino(dinoItem)
+            addInformationUser()
             dialog.dismiss()
         }
         //listener del boton si cancela la compra
@@ -99,18 +106,24 @@ class FShop : Fragment() {
         //verifica que el dinosaurio este o no este comprado ya, los elementos comprados se encuentran en la base de datos y en el array shopData
         val dino = HomeActivity.shopData.filter { it.DinoID == dinoItem.id }
         //Si no esta comprado y por ende la lista esta vacia entonces procede a comprarse
-        if (dino.isEmpty()) {
-            val dbHelper = dbHelper(requireContext()).writableDatabase
-            val values = ContentValues().apply {
-                put(DbContract.FeedEntry.COLUMN_NAME_DINO_ID, dinoItem.id)
+        if ((dinoItem.precio <= prefs.getCoins())) {
+            if (dino.isEmpty()) {
+                val dbHelper = dbHelper(requireContext()).writableDatabase
+                val values = ContentValues().apply {
+                    put(DbContract.FeedEntry.COLUMN_NAME_DINO_ID, dinoItem.id)
+                }
+                val idDinoDb = dbHelper.insert(DbContract.FeedEntry.TABLE_NAME, null, values)
+                Toast.makeText(context, "Se agrego el dino: $idDinoDb", Toast.LENGTH_SHORT).show()
+                prefs.editCoins(prefs.getCoins()-dinoItem.precio)
+                //metodo para actualizar el array de referencia
+                recargarShop()
+                adapter.reloadAdapter()
+
+            } else {
+                Toast.makeText(context, "Dinosaurio ya comprado", Toast.LENGTH_SHORT).show()
             }
-            val idDinoDb = dbHelper.insert(DbContract.FeedEntry.TABLE_NAME, null, values)
-            Toast.makeText(context, "Se agrego el dino: $idDinoDb", Toast.LENGTH_SHORT).show()
-            //metodo para actualizar el array de referencia
-            recargarShop()
-            adapter.reloadAdapter()
         } else {
-            Toast.makeText(context, "Dinosaurio ya comprado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Huesitos insuficientes", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -130,7 +143,10 @@ class FShop : Fragment() {
         )
         with(cursor) {
             while (moveToNext()) {
-                val item = DinoItem(getInt(getColumnIndexOrThrow(BaseColumns._ID)), getInt(getColumnIndexOrThrow(DbContract.FeedEntry.COLUMN_NAME_DINO_ID)))
+                val item = DinoItem(
+                    getInt(getColumnIndexOrThrow(BaseColumns._ID)),
+                    getInt(getColumnIndexOrThrow(DbContract.FeedEntry.COLUMN_NAME_DINO_ID))
+                )
                 HomeActivity.shopData.add(item)
             }
         }
@@ -154,7 +170,7 @@ class FShop : Fragment() {
 //        dialog.setCancelable( true )
         dialog.setContentView(R.layout.dialog_premio2)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        prefs.editCoins(prefs.getCoins()+20)
+        prefs.editCoins(prefs.getCoins() + 20)
         Toast.makeText(context, prefs.getCoins().toString(), Toast.LENGTH_SHORT).show()
 
         val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
@@ -172,7 +188,7 @@ class FShop : Fragment() {
         dialog.setContentView(R.layout.dialog_premio3)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        prefs.editCoins(prefs.getCoins()+30)
+        prefs.editCoins(prefs.getCoins() + 30)
 
         val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
         dialogButton.setOnClickListener {
@@ -196,7 +212,7 @@ class FShop : Fragment() {
         dialog.show()
     }
 
-    private fun showDialogPremios(){
+    private fun showDialogPremios() {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
 //        dialog.setCancelable( true )
@@ -209,7 +225,8 @@ class FShop : Fragment() {
         }
         dialog.show()
     }
-    private fun girarRuleta(){
+
+    private fun girarRuleta() {
         //Genera un valor random entre 1 y 1000
         val randomNumber = (1..1000).random()
 
@@ -218,7 +235,14 @@ class FShop : Fragment() {
         val random = Random()
         val degrees = random.nextInt(360) + 720 // Gira al menos 2 vueltas completas (720 grados)
 
-        val rotateAnimation = RotateAnimation(0f, degrees.toFloat(), Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f)
+        val rotateAnimation = RotateAnimation(
+            0f,
+            degrees.toFloat(),
+            Animation.RELATIVE_TO_SELF,
+            0.5f,
+            Animation.RELATIVE_TO_SELF,
+            0.5f
+        )
         rotateAnimation.duration = 3000 // Duración de la animación (en milisegundos)
         rotateAnimation.fillAfter = true
 
@@ -273,5 +297,11 @@ class FShop : Fragment() {
         binding.userName.text = MainActivity.prefs.getName()
         binding.textLvl.text = MainActivity.prefs.getLvl().toString()
         binding.textBone.text = MainActivity.prefs.getCoins().toString()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        adapter.reloadAdapter()
+        addInformationUser()
     }
 }

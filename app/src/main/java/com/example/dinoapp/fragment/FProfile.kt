@@ -11,7 +11,6 @@ import com.example.dinoapp.HomeActivity
 import com.example.dinoapp.profileEdit.Change_name
 import com.example.dinoapp.Prefs.Prefs
 import com.example.dinoapp.databinding.FragmentFProfileBinding
-import com.example.dinoapp.fragmentosRegistro.ImagenFragment
 import com.example.dinoapp.profileEdit.ChangeProfileImage
 
 class FProfile : Fragment() {
@@ -27,6 +26,7 @@ class FProfile : Fragment() {
     ): View? {
         _binding = FragmentFProfileBinding.inflate(inflater, container, false)
         prefs = Prefs(binding.name.context)
+        binding.progressBar.max = HomeActivity.dinoData.size
         addInformationUser()
         addEvents()
         return binding.root
