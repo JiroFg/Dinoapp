@@ -121,6 +121,39 @@
                 app:layout_constraintTop_toBottomOf="@id/btn_ruleta"
                 android:layout_marginTop="16dp"/>
 
+            <ImageView
+                android:id="@+id/Premios"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="340dp"
+                android:src="@android:drawable/ic_dialog_info"
+                android:tint="#45B0EA"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ruletacentro"
+                android:layout_width="144dp"
+                android:layout_height="166dp"
+                android:layout_marginTop="103dp"
+                android:src="@drawable/ruletacentro"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="52dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="88dp"
+                android:src="@drawable/pointer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/Ruleta" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </LinearLayout>
