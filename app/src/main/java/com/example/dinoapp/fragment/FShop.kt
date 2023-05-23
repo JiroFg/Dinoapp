@@ -47,6 +47,8 @@ class FShop : Fragment() {
         //metodo para colocar la información del usuario en la TopBar
         //Listener cuando presionas el botón para girar la ruleta
         binding.btnRuleta.setOnClickListener {
+            prefs.editCoins(prefs.getCoins()-20)
+            addInformationUser()
             girarRuleta()
         }
         // boton que muestra los premios de la ruleta
@@ -157,6 +159,7 @@ class FShop : Fragment() {
 
         val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
         dialogButton.setOnClickListener {
+            addInformationUser()
             dialog.dismiss()
         }
         dialog.show()
@@ -173,6 +176,7 @@ class FShop : Fragment() {
 
         val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
         dialogButton.setOnClickListener {
+            addInformationUser()
             dialog.dismiss()
         }
         dialog.show()
