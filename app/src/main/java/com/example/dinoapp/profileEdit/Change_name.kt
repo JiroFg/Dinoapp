@@ -1,4 +1,4 @@
-package com.example.dinoapp
+package com.example.dinoapp.profileEdit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,9 +14,9 @@ class Change_name : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChangeNameBinding.inflate(layoutInflater)
-        setContentView(binding.root)
         prefs = Prefs(this)
         changeName()
+        setContentView(binding.root)
     }
     fun changeName() {
         binding.buttonChange.setOnClickListener{

@@ -23,7 +23,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="lock">Bloqueado</string>
     <string name="purchased">Adquirido</string>
-
+<!--    Cambio de imagen profile-->
+    <string name="cambiar_imagen">Cambiar imagen</string>
     <!-- filter list -->
     <string-array name="filter_list">
         <item>herbívoro</item>

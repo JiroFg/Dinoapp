@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.dinoapp.Change_name
+import com.example.dinoapp.profileEdit.Change_name
 import com.example.dinoapp.Prefs.Prefs
 import com.example.dinoapp.databinding.FragmentFProfileBinding
+import com.example.dinoapp.profileEdit.ChangeProfileImage
 
 class FProfile : Fragment() {
 
@@ -29,6 +30,11 @@ class FProfile : Fragment() {
     fun addEvents() {
         binding.btnEdiName.setOnClickListener {
             val intent = Intent(activity, Change_name::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnEditAvatar.setOnClickListener {
+            val intent = Intent(activity, ChangeProfileImage::class.java)
             startActivity(intent)
         }
     }
