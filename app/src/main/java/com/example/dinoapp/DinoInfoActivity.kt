@@ -1,5 +1,6 @@
 package com.example.dinoapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
@@ -55,5 +56,9 @@ class DinoInfoActivity : AppCompatActivity() {
 
     fun buttonsConf(){
         binding.backButton.setOnClickListener { finish() }
+        binding.galeria.setOnClickListener {
+            val intent = Intent(this, GaleriaActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

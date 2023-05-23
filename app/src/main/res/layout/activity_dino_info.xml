@@ -75,45 +75,60 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"/>
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/galeria"
+                        android:layout_width="76dp"
+                        android:layout_height="61dp"
+                        android:layout_marginStart="316dp"
+                        android:layout_marginTop="220dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@android:drawable/ic_menu_view"
+                        app:tint="#4CAF50" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/dietaCardview"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_marginHorizontal="16dp"
-                    app:contentPadding="8dp"
+                    android:layout_marginTop="16dp"
                     android:elevation="8dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="16dp"
+                    app:contentPadding="8dp"
                     app:layout_constraintBottom_toTopOf="@id/pesolongCardview"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/imgCardview">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
                             android:src="@drawable/ic_food"
-                            app:tint="@color/food"
-                            android:layout_marginEnd="8dp"/>
+                            app:tint="@color/food" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Dieta: "
                             android:textColor="@color/dino_text"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/dietaText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="changuin"
-                            android:textColor="@color/dino_text"/>
+                            android:textColor="@color/dino_text"
+                            tools:text="changuin" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -121,12 +136,12 @@
                     android:id="@+id/pesolongCardview"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_marginHorizontal="16dp"
-                    app:contentPadding="8dp"
+                    android:layout_marginTop="16dp"
                     android:elevation="8dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="16dp"
+                    app:contentPadding="8dp"
                     app:layout_constraintBottom_toTopOf="@id/epocaCardview"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -135,55 +150,63 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:gravity="center">
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
+                            android:layout_marginEnd="32dp"
                             android:gravity="center"
-                            android:layout_marginEnd="32dp">
+                            android:orientation="vertical">
+
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_weight"
-                                app:tint="@color/weight"/>
+                                app:tint="@color/weight" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Peso:"
                                 android:textColor="@color/dino_text"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
+
                             <TextView
                                 android:id="@+id/pesoText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                tools:text="changuin"
-                                android:textColor="@color/dino_text" />
+                                android:textColor="@color/dino_text"
+                                tools:text="changuin" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
+                            android:layout_marginStart="32dp"
                             android:gravity="center"
-                            android:layout_marginStart="32dp">
+                            android:orientation="vertical">
+
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:src="@drawable/ic_height"
                                 app:tint="@color/height" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Longitud:"
                                 android:textColor="@color/dino_text"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
+
                             <TextView
                                 android:id="@+id/longText"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                tools:text="changuin"
-                                android:textColor="@color/dino_text"/>
+                                android:textColor="@color/dino_text"
+                                tools:text="changuin" />
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -192,12 +215,12 @@
                     android:id="@+id/epocaCardview"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_marginHorizontal="16dp"
-                    app:contentPadding="8dp"
+                    android:layout_marginTop="16dp"
                     android:elevation="8dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="16dp"
+                    app:contentPadding="8dp"
                     app:layout_constraintBottom_toTopOf="@id/tipoCardview"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -207,24 +230,27 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
                             android:src="@drawable/ic_time"
-                            app:tint="@color/time"
-                            android:layout_marginEnd="8dp"/>
+                            app:tint="@color/time" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Epoca: "
                             android:textColor="@color/dino_text"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/epocaText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="changuin"
-                            android:textColor="@color/dino_text" />
+                            android:textColor="@color/dino_text"
+                            tools:text="changuin" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -232,12 +258,12 @@
                     android:id="@+id/tipoCardview"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_marginHorizontal="16dp"
-                    app:contentPadding="8dp"
+                    android:layout_marginTop="16dp"
                     android:elevation="8dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="16dp"
+                    app:contentPadding="8dp"
                     app:layout_constraintBottom_toTopOf="@id/ordenCardview"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -247,24 +273,27 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
                             android:src="@drawable/ic_type"
-                            app:tint="@color/type"
-                            android:layout_marginEnd="8dp"/>
+                            app:tint="@color/type" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Tipo: "
                             android:textColor="@color/dino_text"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/tipoText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="changuin"
-                            android:textColor="@color/dino_text" />
+                            android:textColor="@color/dino_text"
+                            tools:text="changuin" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -272,38 +301,42 @@
                     android:id="@+id/ordenCardview"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:layout_marginHorizontal="16dp"
-                    app:contentPadding="8dp"
+                    android:layout_marginTop="16dp"
                     android:elevation="8dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="16dp"
+                    app:contentPadding="8dp"
                     app:layout_constraintBottom_toTopOf="@id/familiaCardview"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tipoCardview">
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
                             android:src="@drawable/ic_order"
-                            app:tint="@color/order"
-                            android:layout_marginEnd="8dp"/>
+                            app:tint="@color/order" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Orden: "
-                            android:textStyle="bold"
-                            android:textColor="@color/dino_text" />
+                            android:textColor="@color/dino_text"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/ordenText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="changuin"
-                            android:textColor="@color/dino_text" />
+                            android:textColor="@color/dino_text"
+                            tools:text="changuin" />
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
@@ -312,12 +345,12 @@
                     android:id="@+id/familiaCardview"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="16dp"
                     android:layout_marginHorizontal="16dp"
-                    app:contentPadding="8dp"
+                    android:layout_marginVertical="16dp"
                     android:elevation="8dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="16dp"
+                    app:contentPadding="8dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -327,24 +360,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
                             android:src="@drawable/ic_family"
-                            app:tint="@color/family"
-                            android:layout_marginEnd="8dp"/>
+                            app:tint="@color/family" />
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Familia: "
                             android:textColor="@color/dino_text"
-                            android:textStyle="bold"/>
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/familiaText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            tools:text="changuin"
-                            android:textColor="@color/dino_text" />
+                            android:textColor="@color/dino_text"
+                            tools:text="changuin" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
