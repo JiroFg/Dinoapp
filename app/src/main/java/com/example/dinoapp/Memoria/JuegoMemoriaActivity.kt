@@ -10,11 +10,16 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.dinoapp.HomeActivity
 import com.example.dinoapp.LessonActivity
+import com.example.dinoapp.MainActivity
 import com.example.dinoapp.Prefs.Prefs
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityJuegoMemoriaBinding
+import com.example.dinoapp.fragment.FHome
+import com.example.dinoapp.fragment.FShop
 
 class JuegoMemoriaActivity : AppCompatActivity() {
 
@@ -36,14 +41,6 @@ class JuegoMemoriaActivity : AppCompatActivity() {
 
         binding.btnContinuar.isClickable = false
         binding.btnContinuar.isEnabled = false
-        binding.btnContinuar.setOnClickListener {
-            if(idTupla == prefs.getLvl()){
-                prefs.editLvl(prefs.getLvl()+1)
-                //Toast.makeText(this, prefs.getLvl(),Toast.LENGTH_SHORT).show()
-                Log.d("MEMORIA PRUEBA", "ID TUPLA: $idTupla LVL: ${prefs.getLvl()}")
-            }
-            finish()
-        }
 
         val imagenes = mutableListOf(
             R.drawable.memorama1,
@@ -77,6 +74,15 @@ class JuegoMemoriaActivity : AppCompatActivity() {
                 // Actulizar UI
                 actualizarVistas()
             }
+        }
+
+        binding.btnContinuar.setOnClickListener {
+            if(idTupla == prefs.getLvl()){
+                prefs.editLvl(prefs.getLvl()+1)
+                //Toast.makeText(this, prefs.getLvl(),Toast.LENGTH_SHORT).show()
+                Log.d("MEMORIA PRUEBA", "ID TUPLA: $idTupla LVL: ${prefs.getLvl()}")
+            }
+            showDialogResultado()
         }
 
         binding.botonSalir.setOnClickListener{
@@ -160,6 +166,20 @@ class JuegoMemoriaActivity : AppCompatActivity() {
         val dialogButton : Button = dialog.findViewById( R.id.dialog_aceptar )
         dialogButton.setOnClickListener {
             dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    private fun showDialogResultado(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_premio_memorama)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
+        dialogButton.setOnClickListener {
+            prefs.editCoins(prefs.getCoins()+20)
+            dialog.dismiss()
+            finish()
         }
         dialog.show()
     }

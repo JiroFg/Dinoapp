@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.example.dinoapp.Prefs.Prefs
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityQuizBinding
 
@@ -23,6 +24,7 @@ import com.example.dinoapp.databinding.ActivityQuizBinding
 class QuizActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityQuizBinding
+    private lateinit var prefs: Prefs
 
     private var score:Int =0
     private var currentpos:Int = 1
@@ -32,6 +34,7 @@ class QuizActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuizBinding.inflate(layoutInflater)
+        prefs = Prefs(this)
         setContentView(binding.root)
 
         desactivarBtn()
@@ -86,15 +89,9 @@ class QuizActivity : AppCompatActivity() {
                     }
                     else->{
 //                        Agregar el intent de la ventana de los resultados de las preguntas
-//                        var intent = Intent(this,ResultadosQuiz::class.java)
-//                        intent.putExtra(QuizSetData.score,score.toString())
-//                        intent.putExtra("Total",listaPreguntas!!.size.toString())
-                        Toast.makeText(this,score.toString(),Toast.LENGTH_SHORT).show()
-                        Toast.makeText(this,listaPreguntas!!.size.toString(),Toast.LENGTH_SHORT).show()
-
+                        showDialogResultado(score)
                         //-------------Agregar datos a la BD Local ------------------//
                         //-----//
-                        finish()
                     }
                 }
             }
@@ -119,7 +116,7 @@ class QuizActivity : AppCompatActivity() {
 
     fun desactivarBtn(){
         binding.btnContinuar.setBackgroundResource(R.drawable.bg_button_racha)
-        binding.btnContinuar.setText("Continuar")
+        binding.btnContinuar.text = "Continuar"
         binding.btnContinuar.isEnabled = false
         binding.btnContinuar.isClickable = false
     }
@@ -196,6 +193,26 @@ class QuizActivity : AppCompatActivity() {
         val dialogButton : Button = dialog.findViewById( R.id.dialog_aceptar )
         dialogButton.setOnClickListener {
             dialog.dismiss()
+        }
+        dialog.show()
+    }
+
+    private fun showDialogResultado(resultado:Int){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.dialog_premio_quiz)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        Toast.makeText(this,resultado.toString(),Toast.LENGTH_SHORT).show()
+
+        var huesitos = resultado*10
+        Toast.makeText(this,huesitos.toString(),Toast.LENGTH_SHORT).show()
+
+
+        val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
+        dialogButton.setOnClickListener {
+            prefs.editCoins(prefs.getCoins()+huesitos)
+            dialog.dismiss()
+            finish()
         }
         dialog.show()
     }
