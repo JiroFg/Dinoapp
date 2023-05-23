@@ -44,7 +44,7 @@
             android:minHeight="50dp"
             android:progressTint="@color/green"
             android:backgroundTint="@color/green"
-            android:progress="0" />
+            android:progress="0"/>
 
         <TextView
             android:id="@+id/total_preguntas_num"

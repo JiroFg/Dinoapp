@@ -5,12 +5,14 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
-import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.dinoapp.LessonActivity
+import com.example.dinoapp.Prefs.Prefs
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityJuegoMemoriaBinding
 
@@ -22,16 +24,24 @@ class JuegoMemoriaActivity : AppCompatActivity() {
     private var cartaSeleccionada: Int? = null
     private var contador = 0
     private var tamano: Int? = null
+    private var idTupla = 1000
+    private lateinit var prefs: Prefs
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityJuegoMemoriaBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        prefs = Prefs(this)
+        idTupla = intent.getIntExtra(LessonActivity.LESSON_TUPLA_ID, 0)
 
         binding.btnContinuar.isClickable = false
         binding.btnContinuar.isEnabled = false
         binding.btnContinuar.setOnClickListener {
+            if(idTupla == prefs.getLvl()){
+                prefs.editLvl(prefs.getLvl()+1)
+                //Toast.makeText(this, prefs.getLvl(),Toast.LENGTH_SHORT).show()
+                Log.d("MEMORIA PRUEBA", "ID TUPLA: $idTupla LVL: ${prefs.getLvl()}")
+            }
             finish()
         }
 
@@ -70,9 +80,6 @@ class JuegoMemoriaActivity : AppCompatActivity() {
         }
 
         binding.botonSalir.setOnClickListener{
-//            Toast.makeText(this,"click",Toast.LENGTH_SHORT).show()
-//            val intent = Intent(this, Home::class.java)
-//            startActivity(intent)
             finish()
         }
 
@@ -98,7 +105,6 @@ class JuegoMemoriaActivity : AppCompatActivity() {
         val carta = cartas[pos]
         // Errores posibles: si la carta ya está volteada
         if (carta.isFaceUp){
-            Toast.makeText(this,"No puedes hacer eso :(", Toast.LENGTH_SHORT).show()
             return
         }
         //0 cartas volteadas -> restaurar las cartas + voltear la carta seleccionada
@@ -124,7 +130,6 @@ class JuegoMemoriaActivity : AppCompatActivity() {
 
     private fun verificarMatch(pos1: Int, pos2: Int) {
         if (cartas[pos1].id == cartas[pos2].id){
-            Toast.makeText(this,"Felicidades son iguales", Toast.LENGTH_SHORT).show()
             cartas[pos1].isMatched = true
             cartas[pos2].isMatched = true
             activarContinuar()

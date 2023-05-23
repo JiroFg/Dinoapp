@@ -22,12 +22,12 @@ class DinoProvider(){
                 override fun onResponse(call: Call<List<Dino>>, response: Response<List<Dino>>) {
                     val dinos = response.body()
                     dinos?.forEach {
-                        Log.d("PRUEBA", it.toString())
+                        Log.d("DINOS", it.toString())
                         HomeActivity.dinoData.add(it)
                     }
                 }
                 override fun onFailure(call: Call<List<Dino>>, t: Throwable) {
-                    t?.printStackTrace()
+                    t.printStackTrace()
                 }
             })
         }

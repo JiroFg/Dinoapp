@@ -3,6 +3,7 @@ package com.example.dinoapp.LessonRecycler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.dinoapp.MainActivity
 import com.example.dinoapp.R
 
 class LessonAdapter(private val lessonList:List<Lesson>, private val onClickListener:(Lesson)-> Unit) : RecyclerView.Adapter<LessonViewHolder>() {
@@ -16,7 +17,11 @@ class LessonAdapter(private val lessonList:List<Lesson>, private val onClickList
 
     override fun onBindViewHolder(holder: LessonViewHolder, position: Int) {
         val item = lessonList[position]
-        holder.render(item, onClickListener)
+        if(item.idTupla<=MainActivity.prefs.getLvl()) {
+            holder.render(item, onClickListener)
+        }else{
+            holder.lockRender(item)
+        }
     }
 
 }

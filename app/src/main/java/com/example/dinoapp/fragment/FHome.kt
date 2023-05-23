@@ -2,6 +2,7 @@ package com.example.dinoapp.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,9 +19,6 @@ class FHome : Fragment() {
 
     private var _binding: FragmentFHomeBinding? = null
     private val binding get() = _binding!!
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +27,6 @@ class FHome : Fragment() {
         _binding = FragmentFHomeBinding.inflate(inflater, container, false)
         addInformationUser()
         initRecyclerView()
-
         return binding.root
     }
 
@@ -44,11 +41,16 @@ class FHome : Fragment() {
             putExtra(LessonActivity.LESSON_ID, lesson.idLeccion)
             putExtra(LessonActivity.LESSON_DINO_ID, lesson.idDino)
             putExtra(LessonActivity.LESSON_INFO, lesson.info)
+            putExtra(LessonActivity.LESSON_ACTIVIDAD, lesson.actividad)
+            putExtra(LessonActivity.LESSON_TUPLA_ID, lesson.idTupla)
         }
+        Log.d("DATOS HOME A LESSON", lesson.idTupla.toString())
         startActivity(intent)
     }
 
     fun addInformationUser() {
-        binding.name.text = MainActivity.prefs.getName()
+        binding.userName.text = MainActivity.prefs.getName()
+        binding.textLvl.text = MainActivity.prefs.getLvl().toString()
+        binding.textBone.text = MainActivity.prefs.getCoins().toString()
     }
 }

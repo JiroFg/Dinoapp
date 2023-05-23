@@ -56,7 +56,8 @@
         <ImageView
             android:id="@+id/img"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="@color/black" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -92,12 +93,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/infoCardview"
-        android:background="@drawable/btn"
+        android:backgroundTint="@color/green"
         android:fontFamily="@font/poppins_medium"
-        android:paddingHorizontal="40dp"
-        android:paddingVertical="15dp"
-        android:text="@string/continue_button_text"
+        android:lineHeight="20dp"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="12dp"
+        android:shadowRadius="20"
+        android:text="Continuar"
+        android:textAllCaps="false"
+        android:textColor="#fff"
         android:textSize="18dp"
-        android:shadowRadius="20" />
+        android:textStyle="bold"
+        app:cornerRadius="25dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

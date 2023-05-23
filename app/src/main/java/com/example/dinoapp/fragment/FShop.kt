@@ -22,7 +22,8 @@ import com.example.dinoapp.DataBaseSQLite.DinoItem
 import com.example.dinoapp.DataBaseSQLite.dbHelper
 import com.example.dinoapp.DinoRecycler.Dino
 import com.example.dinoapp.HomeActivity
-import com.example.dinoapp.MainActivity.Companion.prefs
+import com.example.dinoapp.MainActivity
+import com.example.dinoapp.Prefs.Prefs
 import com.example.dinoapp.R
 import com.example.dinoapp.ShopRecycler.ShopAdapter
 import com.example.dinoapp.databinding.FragmentFShopBinding
@@ -32,12 +33,14 @@ class FShop : Fragment() {
     private var _binding: FragmentFShopBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: ShopAdapter
+    private lateinit var prefs: Prefs
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFShopBinding.inflate(inflater, container, false)
+        prefs = Prefs(binding.btnRuleta.context)
         //metodo para colocar la información del usuario en la TopBar
         addInformationUser()
         //Listener cuando presionas el botón para girar la ruleta
@@ -202,6 +205,8 @@ class FShop : Fragment() {
     }
 
     fun addInformationUser() {
-        binding.name.text = prefs.getName()
+        binding.userName.text = MainActivity.prefs.getName()
+        binding.textLvl.text = MainActivity.prefs.getLvl().toString()
+        binding.textBone.text = MainActivity.prefs.getCoins().toString()
     }
 }

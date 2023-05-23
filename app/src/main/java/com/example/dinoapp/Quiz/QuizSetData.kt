@@ -35,7 +35,7 @@ object QuizSetData{
             2
         )
         var p4 = QuizPreguntaData(
-            4,
+            10,
             "pregunta 4",
             "incorrecta",
             "incorrecta",
