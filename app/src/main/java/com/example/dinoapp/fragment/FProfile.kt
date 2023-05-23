@@ -6,9 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
+import com.example.dinoapp.HomeActivity
 import com.example.dinoapp.profileEdit.Change_name
 import com.example.dinoapp.Prefs.Prefs
 import com.example.dinoapp.databinding.FragmentFProfileBinding
+import com.example.dinoapp.fragmentosRegistro.ImagenFragment
 import com.example.dinoapp.profileEdit.ChangeProfileImage
 
 class FProfile : Fragment() {
@@ -16,6 +19,7 @@ class FProfile : Fragment() {
     private var _binding: FragmentFProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var prefs: Prefs
+    var profileImage = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,5 +44,18 @@ class FProfile : Fragment() {
     }
     fun addInformationUser() {
         binding.name.text = prefs.getName()
+        profileImage = prefs.getImg()
+        Glide.with(this)
+            .asBitmap()
+            .load(profileImage)
+            .into(binding.avatarImg)
+        binding.dinos.text = HomeActivity.shopData.size.toString() + "/" + HomeActivity.dinoData.size.toString()
+        binding.progressBar.progress = prefs.getLvl()
+        binding.nivel.text = "LV " + prefs.getLvl().toString()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        addInformationUser()
     }
 }

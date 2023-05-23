@@ -23,5 +23,4 @@ class LessonAdapter(private val lessonList:List<Lesson>, private val onClickList
             holder.lockRender(item)
         }
     }
-
 }

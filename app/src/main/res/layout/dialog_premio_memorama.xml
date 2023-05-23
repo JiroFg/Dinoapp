@@ -56,11 +56,12 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="@font/poppins_regular"
-                android:text="20"
+                android:text="5"
                 android:textAlignment="center"
                 android:textColor="#000"
                 android:textSize="16dp"
                 android:textStyle="bold" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

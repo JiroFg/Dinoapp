@@ -10,6 +10,7 @@ import android.view.Window
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.dinoapp.HomeActivity
@@ -172,12 +173,22 @@ class JuegoMemoriaActivity : AppCompatActivity() {
 
     private fun showDialogResultado(){
         val dialog = Dialog(this)
+
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.dialog_premio_memorama)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val huesitos = dialog.findViewById<TextView>(R.id.huesitos)
+
+        if(idTupla == prefs.getLvl()){
+            huesitos.text = 5.toString()
+            prefs.editCoins(prefs.getCoins()+5)
+        }else{
+            huesitos.text = 1.toString()
+            prefs.editCoins(prefs.getCoins()+2)
+        }
         val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
         dialogButton.setOnClickListener {
-            prefs.editCoins(prefs.getCoins()+20)
             dialog.dismiss()
             finish()
         }

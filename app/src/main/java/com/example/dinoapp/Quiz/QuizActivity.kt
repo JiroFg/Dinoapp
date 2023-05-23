@@ -6,6 +6,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
@@ -13,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.example.dinoapp.LessonActivity
 import com.example.dinoapp.Prefs.Prefs
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityQuizBinding
@@ -30,10 +32,12 @@ class QuizActivity : AppCompatActivity() {
     private var currentpos:Int = 1
     private var listaPreguntas:ArrayList<QuizPreguntaData>?=null
     private var opcionSeleccionada:Int=0
+    private var idTupla = 1000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuizBinding.inflate(layoutInflater)
+        idTupla = intent.getIntExtra(LessonActivity.LESSON_TUPLA_ID, 0)
         prefs = Prefs(this)
         setContentView(binding.root)
 
@@ -89,6 +93,11 @@ class QuizActivity : AppCompatActivity() {
                     }
                     else->{
 //                        Agregar el intent de la ventana de los resultados de las preguntas
+                        if(idTupla == prefs.getLvl()){
+                            prefs.editLvl(prefs.getLvl()+1)
+                            //Toast.makeText(this, prefs.getLvl(),Toast.LENGTH_SHORT).show()
+                            Log.d("Quiz preuba", "ID TUPLA: $idTupla LVL: ${prefs.getLvl()}")
+                        }
                         showDialogResultado(score)
                         //-------------Agregar datos a la BD Local ------------------//
                         //-----//
@@ -202,15 +211,23 @@ class QuizActivity : AppCompatActivity() {
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.dialog_premio_quiz)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        Toast.makeText(this,resultado.toString(),Toast.LENGTH_SHORT).show()
 
-        var huesitos = resultado*10
-        Toast.makeText(this,huesitos.toString(),Toast.LENGTH_SHORT).show()
+        val rp = dialog.findViewById<TextView>(R.id.resultadoQuiz)
+        rp.text = resultado.toString()
 
+        val huesito = dialog.findViewById<TextView>(R.id.huesitos)
+//        huesito.text = huesitos.toString()
+
+        if(idTupla == prefs.getLvl()){
+            huesito.text = (resultado*4).toString()
+            prefs.editCoins(prefs.getCoins()+(resultado*4))
+        }else{
+            huesito.text = (resultado*2).toString()
+            prefs.editCoins(prefs.getCoins()+(resultado*2))
+        }
 
         val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
         dialogButton.setOnClickListener {
-            prefs.editCoins(prefs.getCoins()+huesitos)
             dialog.dismiss()
             finish()
         }

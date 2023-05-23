@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.bumptech.glide.Glide
+import com.example.dinoapp.Galeria.GaleriaActivity
 import com.example.dinoapp.databinding.ActivityDinoInfoBinding
 
 class DinoInfoActivity : AppCompatActivity() {

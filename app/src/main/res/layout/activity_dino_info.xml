@@ -85,7 +85,7 @@
                         android:layout_marginTop="220dp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@android:drawable/ic_menu_view"
+                        app:srcCompat="@drawable/ic_imagen"
                         app:tint="#4CAF50" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,11 +1,10 @@
-package com.example.dinoapp
+package com.example.dinoapp.Galeria
 
-import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityGaleriaBinding
 
 class GaleriaActivity : AppCompatActivity() {

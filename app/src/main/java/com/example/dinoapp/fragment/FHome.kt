@@ -18,6 +18,7 @@ import com.example.dinoapp.databinding.FragmentFHomeBinding
 class FHome : Fragment() {
 
     private var _binding: FragmentFHomeBinding? = null
+    private lateinit var adapter: LessonAdapter
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -33,7 +34,8 @@ class FHome : Fragment() {
     private fun initRecyclerView() {
         val recyclerView = binding.recyclerLevels
         recyclerView.layoutManager = LinearLayoutManager(activity)
-        recyclerView.adapter = LessonAdapter(HomeActivity.lessonData) { onItemSelected(it) }
+        adapter = LessonAdapter(HomeActivity.lessonData) { onItemSelected(it) }
+        recyclerView.adapter = adapter
     }
 
     fun onItemSelected(lesson: Lesson) {
@@ -52,5 +54,11 @@ class FHome : Fragment() {
         binding.userName.text = MainActivity.prefs.getName()
         binding.textLvl.text = MainActivity.prefs.getLvl().toString()
         binding.textBone.text = MainActivity.prefs.getCoins().toString()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        addInformationUser()
+        adapter.notifyDataSetChanged()
     }
 }
