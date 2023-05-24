@@ -49,11 +49,11 @@
             <TextView
                 android:id="@+id/text"
                 android:layout_width="match_parent"
-                android:layout_height="46dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="Nuevo dinosaurio desbloqueado"
+                android:text="+ 200 huesitos"
                 android:textAlignment="center"
                 android:textColor="#000"
                 android:textSize="16dp"
