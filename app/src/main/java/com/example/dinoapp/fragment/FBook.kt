@@ -17,9 +17,9 @@ import com.example.dinoapp.HomeActivity
 import com.example.dinoapp.databinding.FragmentFBookBinding
 import java.util.Locale
 
-class FBook : Fragment(){
+class FBook : Fragment() {
 
-    private var _binding : FragmentFBookBinding? = null
+    private var _binding: FragmentFBookBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: DinoAdapter
 
@@ -37,18 +37,18 @@ class FBook : Fragment(){
     private fun initBtn() {
         binding.filterBtn.setOnClickListener {
             val dialog = DialogFilterFragment()
-            dialog.show(requireActivity().supportFragmentManager,"cuack")
+            dialog.show(requireActivity().supportFragmentManager, "cuack")
         }
     }
 
-    private fun initRecyclerView(){
+    private fun initRecyclerView() {
         val recyclerView = binding.recyclerDinos
         recyclerView.layoutManager = LinearLayoutManager(context)
-        adapter = DinoAdapter(HomeActivity.dinoData){onItemSelected(it)}
+        adapter = DinoAdapter(HomeActivity.dinoData) { onItemSelected(it) }
         recyclerView.adapter = adapter
     }
 
-    private fun initSearchView(){
+    private fun initSearchView() {
         binding.shareView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
@@ -61,26 +61,26 @@ class FBook : Fragment(){
         })
     }
 
-    private fun searchList(query:String?){
-        if(query!=null){
+    private fun searchList(query: String?) {
+        if (query != null) {
             val searchedList = arrayListOf<Dino>()
-            for(dino in HomeActivity.dinoData){
-                if(dino.nombre.lowercase().contains(query)){
+            for (dino in HomeActivity.dinoData) {
+                if (dino.nombre.lowercase().contains(query)) {
                     searchedList.add(dino)
                 }
             }
-            if(searchedList.isEmpty()){
-                Toast.makeText(activity, "Sin coincidencias",Toast.LENGTH_SHORT).show()
+            if (searchedList.isEmpty()) {
+                Toast.makeText(activity, "Sin coincidencias", Toast.LENGTH_SHORT).show()
                 adapter.setFilterList(searchedList)
-            }else{
+            } else {
                 adapter.setFilterList(searchedList)
             }
         }
     }
 
-    fun filterList(filters: ArrayList<String>){
+    fun filterList(filters: ArrayList<String>) {
         val filteredList = arrayListOf<Dino>()
-        if(filters.isNotEmpty()) {
+        if (filters.isNotEmpty()) {
             for (dino in HomeActivity.dinoData) {
                 for (filter in filters) {
                     when (filter) {
@@ -89,20 +89,27 @@ class FBook : Fragment(){
                         dino.tipo.lowercase(Locale.ROOT),
                         dino.orden.lowercase(Locale.ROOT),
                         dino.familia.lowercase(Locale.ROOT)
-                        -> filteredList.add(dino)
+                        -> {
+                            //comprueba si el dinosaurio ya se ha agrado a la lista filtrada
+                            val existDino = filteredList.filter { it.id == dino.id }
+                            //si no existe procede a agregarlo, por el contrario si lo encuentra ya no lo agrega
+                            if(existDino.isEmpty()) {
+                                filteredList.add(dino)
+                            }
+                        }
                     }
                 }
             }
         }
-        if(filteredList.isEmpty()){
-            Toast.makeText(activity, "Sin coincidencias",Toast.LENGTH_SHORT).show()
+        if (filteredList.isEmpty()) {
+            Toast.makeText(activity, "Sin coincidencias", Toast.LENGTH_SHORT).show()
             adapter.setFilterList(filteredList)
-        }else{
+        } else {
             adapter.setFilterList(filteredList)
         }
     }
 
-    fun cleanFilters(){
+    fun cleanFilters() {
         adapter.setFilterList(HomeActivity.dinoData)
     }
 
