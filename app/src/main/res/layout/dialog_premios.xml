@@ -46,7 +46,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/poppins_regular"
-                android:text="60%   nada\n20%   + 20 huesitos\n15%    +30 huesitos\n5%      nuevo dinosaurio"
+                android:text="60%   Nada\n20%   + 20 huesitos\n15%    +30 huesitos\n5%     +200 huesitos"
                 android:textColor="#000"
                 android:textSize="16dp"
                 android:textStyle="bold" />
