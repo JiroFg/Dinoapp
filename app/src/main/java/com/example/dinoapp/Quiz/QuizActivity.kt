@@ -93,12 +93,12 @@ class QuizActivity : AppCompatActivity() {
                     }
                     else->{
 //                        Agregar el intent de la ventana de los resultados de las preguntas
+                        showDialogResultado(score)
                         if(idTupla == prefs.getLvl()){
                             prefs.editLvl(prefs.getLvl()+1)
                             //Toast.makeText(this, prefs.getLvl(),Toast.LENGTH_SHORT).show()
                             Log.d("Quiz preuba", "ID TUPLA: $idTupla LVL: ${prefs.getLvl()}")
                         }
-                        showDialogResultado(score)
                         //-------------Agregar datos a la BD Local ------------------//
                         //-----//
                     }
@@ -192,6 +192,7 @@ class QuizActivity : AppCompatActivity() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
         dialog.setContentView( R.layout.dialog_ayuda_activity )
+        dialog.setCancelable(false)
         dialog.window?.setBackgroundDrawable( ColorDrawable( Color.TRANSPARENT ))
 //        val videoView: VideoView = dialog.findViewById( R.id.video )
 //        val videoUri = Uri.parse("android.resource://" + packageName + "/raw/memoriavideo")
@@ -209,6 +210,7 @@ class QuizActivity : AppCompatActivity() {
     private fun showDialogResultado(resultado:Int){
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_premio_quiz)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 

@@ -154,8 +154,7 @@ class FShop : Fragment() {
 
     private fun showDialogPremio1() {
         val dialog = Dialog(requireContext())
-//        dialog.requestWindowFeature( Window.FEATURE_NO_TITLE )
-//        dialog.setCancelable( true )
+        dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_premio1)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
@@ -167,7 +166,7 @@ class FShop : Fragment() {
     private fun showDialogPremio2() {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-//        dialog.setCancelable( true )
+        dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_premio2)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         prefs.editCoins(prefs.getCoins() + 20)
@@ -184,7 +183,7 @@ class FShop : Fragment() {
     private fun showDialogPremio3() {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-//        dialog.setCancelable( true )
+        dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_premio3)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
@@ -201,7 +200,7 @@ class FShop : Fragment() {
     private fun showDialogPremio4() {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-//        dialog.setCancelable( true )
+        dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_premio4)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
@@ -215,7 +214,7 @@ class FShop : Fragment() {
     private fun showDialogPremios() {
         val dialog = Dialog(requireContext())
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-//        dialog.setCancelable( true )
+        dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_premios)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 

@@ -68,12 +68,12 @@ class JuegoMemoriaActivity : AppCompatActivity() {
         }
 
         binding.btnContinuar.setOnClickListener {
+            showDialogResultado()
             if (idTupla == prefs.getLvl()) {
                 prefs.editLvl(prefs.getLvl() + 1)
                 //Toast.makeText(this, prefs.getLvl(),Toast.LENGTH_SHORT).show()
                 Log.d("MEMORIA PRUEBA", "ID TUPLA: $idTupla LVL: ${prefs.getLvl()}")
             }
-            showDialogResultado()
         }
 
         binding.botonSalir.setOnClickListener {
@@ -193,6 +193,7 @@ class JuegoMemoriaActivity : AppCompatActivity() {
         val dialog = Dialog(this)
 
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_premio_memorama)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
