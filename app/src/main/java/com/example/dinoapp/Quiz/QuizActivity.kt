@@ -30,20 +30,24 @@ class QuizActivity : AppCompatActivity() {
 
     private var score:Int =0
     private var currentpos:Int = 1
-    private var listaPreguntas:ArrayList<QuizPreguntaData>?=null
+    private var listaPreguntas:List<QuizPreguntaData>?=null
     private var opcionSeleccionada:Int=0
     private var idTupla = 1000
+    private var idDino = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuizBinding.inflate(layoutInflater)
         idTupla = intent.getIntExtra(LessonActivity.LESSON_TUPLA_ID, 0)
+        idDino = intent.getIntExtra(LessonActivity.LESSON_DINO_ID,0)
         prefs = Prefs(this)
         setContentView(binding.root)
 
         desactivarBtn()
 
-        listaPreguntas = QuizSetData.agarrarPregunta()
+        //listaPreguntas = QuizSetData.agarrarPregunta()
+        listaPreguntas = LessonActivity.quizData
+
         setPregunta()
 
         binding.btnOpc1.setOnClickListener{
@@ -154,10 +158,10 @@ class QuizActivity : AppCompatActivity() {
         binding.progressBar.max = listaPreguntas!!.size
         binding.totalPreguntasNum.text = "${currentpos}"+"/"+"${binding.progressBar.max}"
         binding.preguntaTexto.text = pregunta.pregunta
-        binding.btnOpc1.text = pregunta.opcion_uno
-        binding.btnOpc2.text = pregunta.opcion_dos
-        binding.btnOpc3.text = pregunta.opcion_tres
-        binding.btnOpc4.text = pregunta.opcion_cuatro
+        binding.btnOpc1.text = pregunta.resUno
+        binding.btnOpc2.text = pregunta.resDos
+        binding.btnOpc3.text = pregunta.resTres
+        binding.btnOpc4.text = pregunta.resCuatro
         binding.btnOpc1.isClickable = true
         binding.btnOpc2.isClickable = true
         binding.btnOpc3.isClickable = true

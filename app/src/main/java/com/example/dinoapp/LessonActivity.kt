@@ -8,7 +8,12 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.dinoapp.Memoria.JuegoMemoriaActivity
 import com.example.dinoapp.Quiz.QuizActivity
+import com.example.dinoapp.Quiz.QuizPreguntaData
+import com.example.dinoapp.Quiz.QuizProvider
 import com.example.dinoapp.databinding.ActivityLessonBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class LessonActivity : AppCompatActivity() {
 
@@ -18,19 +23,21 @@ class LessonActivity : AppCompatActivity() {
         const val LESSON_INFO = "lessonInfo"
         const val LESSON_ACTIVIDAD = "actividad"
         const val LESSON_TUPLA_ID = "idTupla"
+        var quizData = mutableListOf<QuizPreguntaData>()
     }
 
     private lateinit var binding: ActivityLessonBinding
     private var idTupla = 1000
+    private var lessonDinoId = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLessonBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val lessonDinoId = intent.getIntExtra(LESSON_DINO_ID, 0)
+        lessonDinoId = intent.getIntExtra(LESSON_DINO_ID, 0)
         val lessonInfo = intent.getStringExtra(LESSON_INFO)
-        val actividad = intent.getIntExtra(LESSON_ACTIVIDAD,1)
+        val actividad = intent.getIntExtra(LESSON_ACTIVIDAD, 1)
         idTupla = intent.getIntExtra(LESSON_TUPLA_ID, 0)
         Log.d("ID EN LESSON", idTupla.toString())
 
@@ -42,30 +49,35 @@ class LessonActivity : AppCompatActivity() {
         binding.textInfo.text = lessonInfo
 
         configBtns(actividad)
-
+        CoroutineScope(Dispatchers.IO).launch {
+            quizData = QuizProvider.cargarQuiz(lessonDinoId)
+        }
     }
 
-    private fun configBtns(game: Int){
+    private fun configBtns(game: Int) {
         binding.backBtn.setOnClickListener { finish() }
 
         binding.continueBtn.setOnClickListener {
-            when(game){
+            when (game) {
                 1 -> {
-                    val intent = Intent(this,JuegoMemoriaActivity::class.java).apply {
+                    val intent = Intent(this, JuegoMemoriaActivity::class.java).apply {
                         putExtra(LESSON_TUPLA_ID, idTupla)
                     }
                     startActivity(intent)
                     finish()
                 }
+
                 2 -> {
-                    val intent = Intent(this,QuizActivity::class.java).apply {
+                    val intent = Intent(this, QuizActivity::class.java).apply {
                         putExtra(LESSON_TUPLA_ID, idTupla)
+                        putExtra(LESSON_DINO_ID, lessonDinoId)
                     }
                     startActivity(intent)
                     finish()
                 }
+
                 else -> {
-                    Toast.makeText(this,"Opcion invalida", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Opcion invalida", Toast.LENGTH_SHORT).show()
                 }
             }
         }

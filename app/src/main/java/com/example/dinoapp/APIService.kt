@@ -5,6 +5,7 @@ import com.example.dinoapp.LessonRecycler.Lesson
 import com.example.dinoapp.Quiz.QuizPreguntaData
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface APIService {
     @GET("dinosaurios")
@@ -13,6 +14,6 @@ interface APIService {
     @GET("lecciones")
     fun getLecciones(): Call<List<Lesson>>
 
-    @GET("quiz")
-    fun getQuices(): Call<List<QuizPreguntaData>>
+    @GET("quiz/{id}")
+    fun getQuiz(@Path("id") id: Int): Call<List<QuizPreguntaData>>
 }

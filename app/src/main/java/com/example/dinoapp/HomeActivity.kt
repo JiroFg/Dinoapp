@@ -19,7 +19,6 @@ import com.example.dinoapp.DinoRecycler.Dino
 import com.example.dinoapp.DinoRecycler.DinoProvider
 import com.example.dinoapp.LessonRecycler.Lesson
 import com.example.dinoapp.LessonRecycler.LessonProvider
-import com.example.dinoapp.Quiz.QuizPreguntaData
 import com.example.dinoapp.databinding.ActivityHomeBinding
 import com.example.dinoapp.fragment.FBook
 import com.example.dinoapp.fragment.FHome
@@ -139,7 +138,6 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters {
     companion object {
         val dinoData = mutableListOf<Dino>()
         val lessonData = mutableListOf<Lesson>()
-        val quizData = mutableListOf<QuizPreguntaData>()
         val shopData = mutableListOf<DinoItem>()
     }
 }
