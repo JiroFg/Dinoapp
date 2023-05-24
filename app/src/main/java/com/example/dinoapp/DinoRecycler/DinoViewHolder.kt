@@ -13,7 +13,9 @@ class DinoViewHolder(view:View): RecyclerView.ViewHolder(view){
     val binding = ItemDinoBinding.bind(view)
 
     fun render(dino: Dino, onClickListener:(Dino) -> Unit){
+        //coloca el nombre del dinosaurio en el text view del layout
         binding.textDinoName.text = dino.nombre
+        //coloca la imagen del dinosaurio
         Glide.with(binding.imageDino.context).load(dino.img).into(binding.imageDino)
         binding.imageDino.setBackgroundColor(ContextCompat.getColor(binding.imageDino.context, R.color.white))
         binding.imageDino.setPadding(0)

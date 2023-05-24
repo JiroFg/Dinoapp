@@ -17,8 +17,10 @@ class LessonAdapter(private val lessonList:List<Lesson>, private val onClickList
 
     override fun onBindViewHolder(holder: LessonViewHolder, position: Int) {
         val item = lessonList[position]
+        //si nivel es menor o igual al nivel del usuario entonces renderiza el nivel desbloqueado
         if(item.idTupla<=MainActivity.prefs.getLvl()) {
             holder.render(item, onClickListener)
+            //por el contrario si el nivel es mayor lo pinta bloqueado
         }else{
             holder.lockRender(item)
         }
