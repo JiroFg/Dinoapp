@@ -1,15 +1,19 @@
 package com.example.dinoapp.fragmentosRegistro
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
 import com.example.dinoapp.InterfaceTransferencia
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.FragmentImagenBinding
+import javax.sql.DataSource
 import kotlin.properties.Delegates
 
 class ImagenFragment : Fragment() {
@@ -38,6 +42,7 @@ class ImagenFragment : Fragment() {
     ): View? {
         val myInterface : InterfaceTransferencia = activity as InterfaceTransferencia
         _binding = FragmentImagenBinding.inflate(inflater, container,false)
+
         val view = binding.root
 
         setBtnImg()

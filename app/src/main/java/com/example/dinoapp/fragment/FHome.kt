@@ -47,12 +47,7 @@ class FHome : Fragment() {
             putExtra(LessonActivity.LESSON_TUPLA_ID, lesson.idTupla)
         }
         Log.d("DATOS HOME A LESSON", lesson.idTupla.toString())
-
-//        if (HomeActivity().isNetworkAvailable())
-//            startActivity(intent)
-//        else
-//            HomeActivity().showDialog()
-
+        startActivity(intent)
     }
 
     fun addInformationUser() {
