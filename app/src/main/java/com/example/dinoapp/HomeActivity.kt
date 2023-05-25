@@ -39,9 +39,9 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters {
         setContentView(binding.root)
 
         CoroutineScope(Dispatchers.IO).launch {
+            cargarShop()
             DinoProvider.cargarDinos()
             LessonProvider.cargarLessons()
-            cargarShop()
         }
 
         val fShop = FShop()
