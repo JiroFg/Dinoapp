@@ -66,6 +66,7 @@ class MainActivity : AppCompatActivity(), InterfaceTransferencia {
 
     override fun continuar() {
         binding.pager.currentItem++
+        drawLayout()
     }
 
     fun iniciarActividadHome(){

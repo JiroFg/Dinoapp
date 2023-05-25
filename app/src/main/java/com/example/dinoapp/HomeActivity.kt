@@ -121,7 +121,7 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters {
 
     }
 
-    private fun drawLayout() {
+    fun drawLayout() {
         if (!isNetworkAvailable()) {
             showDialog()
         }
