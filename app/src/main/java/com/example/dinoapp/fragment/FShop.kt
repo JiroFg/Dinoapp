@@ -57,7 +57,13 @@ class FShop : Fragment() {
         }
         // boton que muestra los premios de la ruleta
         binding.Premios.setOnClickListener {
+
+            // ----------HACK-----------
             prefs.editCoins(1000)
+            prefs.editLvl(1000)
+            addInformationUser()
+            // --------------------------
+
             showDialogPremios()
         }
         initRecyclerView()
@@ -203,6 +209,8 @@ class FShop : Fragment() {
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_premio4)
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        prefs.editCoins(prefs.getCoins() + 200)
 
         val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
         dialogButton.setOnClickListener {
