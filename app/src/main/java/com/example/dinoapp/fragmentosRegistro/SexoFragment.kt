@@ -1,10 +1,15 @@
 package com.example.dinoapp.fragmentosRegistro
 
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
+import com.example.dinoapp.HomeActivity
 import com.example.dinoapp.InterfaceTransferencia
 import com.example.dinoapp.databinding.FragmentSexoBinding
 
