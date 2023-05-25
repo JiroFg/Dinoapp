@@ -32,37 +32,37 @@ class ChangeProfileImage : AppCompatActivity() {
 
         binding.imgBtn1.setOnClickListener {
             setBtnImg()
-            binding.imgBtn1.setImageResource(R.drawable.jurassic_park)
+            binding.imgBtn1.setImageResource(R.drawable.checkgrande)
             img = ImagenFragment.IMG1
         }
 
         binding.imgBtn2.setOnClickListener {
             setBtnImg()
-            binding.imgBtn2.setImageResource(R.drawable.jurassic_park)
+            binding.imgBtn2.setImageResource(R.drawable.checkgrande)
             img = ImagenFragment.IMG2
         }
 
         binding.imgBtn3.setOnClickListener {
             setBtnImg()
-            binding.imgBtn3.setImageResource(R.drawable.jurassic_park)
+            binding.imgBtn3.setImageResource(R.drawable.checkgrande)
             img = ImagenFragment.IMG3
         }
 
         binding.imgBtn4.setOnClickListener {
             setBtnImg()
-            binding.imgBtn4.setImageResource(R.drawable.jurassic_park)
+            binding.imgBtn4.setImageResource(R.drawable.checkgrande)
             img = ImagenFragment.IMG4
         }
 
         binding.imgBtn5.setOnClickListener {
             setBtnImg()
-            binding.imgBtn5.setImageResource(R.drawable.jurassic_park)
+            binding.imgBtn5.setImageResource(R.drawable.checkgrande)
             img = ImagenFragment.IMG5
         }
 
         binding.imgBtn6.setOnClickListener {
             setBtnImg()
-            binding.imgBtn6.setImageResource(R.drawable.jurassic_park)
+            binding.imgBtn6.setImageResource(R.drawable.checkgrande)
             img = ImagenFragment.IMG6
         }
 

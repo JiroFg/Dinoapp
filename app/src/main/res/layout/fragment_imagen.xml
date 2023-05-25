@@ -44,10 +44,10 @@
             app:cardCornerRadius="20dp">
             <ImageButton
                 android:id="@+id/img_btn1"
-                android:src="@drawable/jurassic_park"
+                android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"/>
+                android:background="@drawable/btn_bg_sexo_enable"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
@@ -58,10 +58,10 @@
             app:cardCornerRadius="20dp">
             <ImageButton
                 android:id="@+id/img_btn2"
-                android:src="@drawable/jurassic_park"
+                android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"/>
+                android:background="@drawable/btn_bg_sexo_enable"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
@@ -72,10 +72,10 @@
             app:cardCornerRadius="20dp">
             <ImageButton
                 android:id="@+id/img_btn3"
-                android:src="@drawable/jurassic_park"
+                android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"/>
+                android:background="@drawable/btn_bg_sexo_enable"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
@@ -86,10 +86,10 @@
             app:cardCornerRadius="20dp">
             <ImageButton
                 android:id="@+id/img_btn4"
-                android:src="@drawable/jurassic_park"
+                android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white"/>
+                android:background="@drawable/btn_bg_sexo_enable"/>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
@@ -100,10 +100,10 @@
             app:cardCornerRadius="20dp">
             <ImageButton
                 android:id="@+id/img_btn5"
-                android:src="@drawable/jurassic_park"
+                android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white" />
+                android:background="@drawable/btn_bg_sexo_enable" />
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
@@ -114,10 +114,10 @@
             app:cardCornerRadius="20dp">
             <ImageButton
                 android:id="@+id/img_btn6"
-                android:src="@drawable/jurassic_park"
+                android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/white" />
+                android:background="@drawable/btn_bg_sexo_enable" />
         </androidx.cardview.widget.CardView>
 
     </GridLayout>

@@ -1,5 +1,10 @@
 package com.example.dinoapp.fragmentosRegistro
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,7 +12,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 import com.example.dinoapp.InterfaceTransferencia
+import com.example.dinoapp.R
 import com.example.dinoapp.databinding.FragmentNombreBinding
 
 class NombreFragment : Fragment() {
@@ -44,6 +54,7 @@ class NombreFragment : Fragment() {
 
         binding.buttonContinue.setOnClickListener {
             myInterface.transferirNombre(binding.inputEdit.text.toString())
+
             myInterface.continuar()
         }
 
