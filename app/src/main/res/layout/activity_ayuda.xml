@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dinosauriobck"
+    tools:context=".AyudaActivity">
+
+    <Button
+        android:id="@+id/btn_acerca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg_sexo"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="Creado por: \n\n Terrones Pacheco Alex Antonio \n Fuentes Garcia Edson Jair \n Hernandez Aburto Erick Adrian \n Rodriguez Solis Eduardo \n Filete Lopez Christian \n "
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
