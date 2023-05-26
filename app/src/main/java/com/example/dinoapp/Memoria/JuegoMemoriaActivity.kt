@@ -199,12 +199,13 @@ class JuegoMemoriaActivity : AppCompatActivity() {
 
         val huesitos = dialog.findViewById<TextView>(R.id.huesitos)
 
+        val randomNumber = (10..25).random()
         if (idTupla == prefs.getLvl()) {
-            huesitos.text = 5.toString()
-            prefs.editCoins(prefs.getCoins() + 5)
+            huesitos.text = randomNumber.toString()
+            prefs.editCoins(prefs.getCoins() + randomNumber)
         } else {
-            huesitos.text = 1.toString()
-            prefs.editCoins(prefs.getCoins() + 2)
+            huesitos.text = 6.toString()
+            prefs.editCoins(prefs.getCoins() + 6)
         }
         val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
         dialogButton.setOnClickListener {

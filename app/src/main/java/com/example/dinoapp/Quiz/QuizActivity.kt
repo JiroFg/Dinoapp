@@ -224,12 +224,13 @@ class QuizActivity : AppCompatActivity() {
         val huesito = dialog.findViewById<TextView>(R.id.huesitos)
 //        huesito.text = huesitos.toString()
 
+        val randomNumber = (10..25).random()
         if(idTupla == prefs.getLvl()){
-            huesito.text = (resultado*4).toString()
-            prefs.editCoins(prefs.getCoins()+(resultado*4))
+            huesito.text = (resultado*randomNumber).toString()
+            prefs.editCoins(prefs.getCoins()+(resultado*randomNumber))
         }else{
-            huesito.text = (resultado*2).toString()
-            prefs.editCoins(prefs.getCoins()+(resultado*2))
+            huesito.text = (resultado*8).toString()
+            prefs.editCoins(prefs.getCoins()+(resultado*8))
         }
 
         val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
