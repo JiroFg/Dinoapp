@@ -80,23 +80,22 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ImageButton
-        android:id="@+id/btn_ayuda"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_btn_edit"
-        android:src="@android:drawable/ic_menu_help"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topBar"
-        android:layout_marginStart="16dp"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerLevels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar" />
+
+    <ImageButton
+        android:id="@+id/btn_ayuda"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_btn_edit"
+        android:src="@android:drawable/ic_menu_help"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topBar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

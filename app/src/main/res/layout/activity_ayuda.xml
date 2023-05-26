@@ -12,7 +12,6 @@
         android:id="@+id/btn_acerca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg_sexo"
         android:gravity="center_horizontal|center_vertical"
         android:text="Creado por: \n\n Terrones Pacheco Alex Antonio \n Fuentes Garcia Edson Jair \n Hernandez Aburto Erick Adrian \n Rodriguez Solis Eduardo \n Filete Lopez Christian \n "
         app:layout_constraintBottom_toBottomOf="parent"

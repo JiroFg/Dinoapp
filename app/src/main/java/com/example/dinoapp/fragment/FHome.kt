@@ -34,6 +34,7 @@ class FHome : Fragment() {
             val intent = Intent(context, AyudaActivity::class.java)
             startActivity(intent)
         }
+
         return binding.root
     }
 
