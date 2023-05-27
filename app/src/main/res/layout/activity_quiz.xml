@@ -56,10 +56,11 @@
             android:textSize="20sp" />
     </LinearLayout>
 
+
     <TextView
         android:id="@+id/pregunta_texto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="410dp"
+        android:layout_height="78dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:padding="10dp"
@@ -71,18 +72,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101" />
-
+        app:layout_constraintVertical_bias="0.104" />
 
     <ImageView
         android:id="@+id/imagen_quiz"
         android:layout_width="335dp"
         android:layout_height="218dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/dilo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/dilo"/>
+        app:layout_constraintTop_toBottomOf="@+id/pregunta_texto" />
 
     <TextView
         android:id="@+id/btn_opc1"
@@ -135,10 +135,10 @@
         android:layout_width="379dp"
         android:layout_height="46dp"
         android:background="@drawable/opcion_pregunta"
+        android:fontFamily="@font/poppins_medium"
         android:gravity="center"
         android:padding="10dp"
         android:text="Opcion 4"
-        android:fontFamily="@font/poppins_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,6 +150,7 @@
         android:layout_width="201dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_button_racha"
         android:fontFamily="@font/poppins_medium"
         android:lineHeight="20dp"
@@ -164,8 +165,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.91" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_opc4"
+        app:layout_constraintVertical_bias="0.416" />
 
     <ImageButton
         android:id="@+id/btn_ayuda"
@@ -173,13 +174,13 @@
         android:layout_height="40dp"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="8dp"
-        android:src="@android:drawable/ic_menu_help"
         android:background="@drawable/bg_btn_edit"
+        android:src="@android:drawable/ic_menu_help"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.977"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintVertical_bias="0.222" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
