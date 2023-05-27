@@ -141,5 +141,6 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters {
         val dinoData = mutableListOf<Dino>()
         val lessonData = mutableListOf<Lesson>()
         val shopData = mutableListOf<DinoItem>()
+        var boolNewDino = true
     }
 }

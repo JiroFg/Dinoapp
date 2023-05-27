@@ -1,11 +1,16 @@
 package com.example.dinoapp.fragment
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dinoapp.AyudaActivity
@@ -14,6 +19,7 @@ import com.example.dinoapp.LessonActivity
 import com.example.dinoapp.LessonRecycler.Lesson
 import com.example.dinoapp.LessonRecycler.LessonAdapter
 import com.example.dinoapp.MainActivity
+import com.example.dinoapp.R
 import com.example.dinoapp.databinding.FragmentFHomeBinding
 
 
@@ -64,9 +70,28 @@ class FHome : Fragment() {
         binding.textBone.text = MainActivity.prefs.getCoins().toString()
     }
 
+    private fun showDialogNuevo() {
+        val dialog = Dialog(requireContext())
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.dialog_new_dino)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val dialogButton: Button = dialog.findViewById(R.id.dialog_aceptar)
+        dialogButton.setOnClickListener { dialog.dismiss() }
+        dialog.show()
+    }
+
     override fun onResume() {
         super.onResume()
         addInformationUser()
         adapter.notifyDataSetChanged()
+        if (HomeActivity.boolNewDino){
+            var price = HomeActivity.dinoData.minByOrNull { it.precio }
+            Toast.makeText(context,price!!.precio.toString(),Toast.LENGTH_SHORT).show()
+            val coins = MainActivity.prefs.getCoins()
+            if (coins > price!!.precio){
+                showDialogNuevo()
+                HomeActivity.boolNewDino = false
+            }
+        }
     }
 }

@@ -120,6 +120,8 @@ class FShop : Fragment() {
                 }
                 val idDinoDb = dbHelper.insert(DbContract.FeedEntry.TABLE_NAME, null, values)
                 Toast.makeText(context, "Se agrego el dino: $idDinoDb", Toast.LENGTH_SHORT).show()
+                //Al comprar nuevo dino vuelve a mostrar dialog cuando este disponible otro
+                HomeActivity.boolNewDino = true
                 prefs.editCoins(prefs.getCoins()-dinoItem.precio)
                 //metodo para actualizar el array de referencia
                 recargarShop()
