@@ -16,6 +16,7 @@ import com.example.dinoapp.LessonRecycler.LessonAdapter
 import com.example.dinoapp.MainActivity
 import com.example.dinoapp.databinding.FragmentFHomeBinding
 
+
 class FHome : Fragment() {
 
     private var _binding: FragmentFHomeBinding? = null

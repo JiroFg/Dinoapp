@@ -20,8 +20,8 @@
         app:layout_constraintBottom_toTopOf="@id/grid"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        />
+        android:layout_marginBottom="8dp" />
+
     <GridLayout
         android:id="@+id/grid"
         android:layout_width="0dp"
@@ -34,6 +34,7 @@
         android:layout_marginEnd="22dp"
         android:columnCount="2"
         android:rowCount="4">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView1"
             android:layout_height="0dp"
@@ -42,13 +43,15 @@
             android:layout_rowWeight="1"
             android:layout_margin="16dp"
             app:cardCornerRadius="20dp">
+
             <ImageButton
                 android:id="@+id/img_btn1"
                 android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/btn_bg_sexo_enable"/>
+                android:background="@drawable/btn_bg_sexo_enable" />
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -56,13 +59,15 @@
             android:layout_rowWeight="1"
             android:layout_margin="16dp"
             app:cardCornerRadius="20dp">
+
             <ImageButton
                 android:id="@+id/img_btn2"
                 android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/btn_bg_sexo_enable"/>
+                android:background="@drawable/btn_bg_sexo_enable" />
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -70,13 +75,15 @@
             android:layout_rowWeight="1"
             android:layout_margin="16dp"
             app:cardCornerRadius="20dp">
+
             <ImageButton
                 android:id="@+id/img_btn3"
                 android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/btn_bg_sexo_enable"/>
+                android:background="@drawable/btn_bg_sexo_enable" />
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -84,13 +91,15 @@
             android:layout_rowWeight="1"
             android:layout_margin="16dp"
             app:cardCornerRadius="20dp">
+
             <ImageButton
                 android:id="@+id/img_btn4"
                 android:src="@drawable/checkgrande"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/btn_bg_sexo_enable"/>
+                android:background="@drawable/btn_bg_sexo_enable" />
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -98,6 +107,7 @@
             android:layout_rowWeight="1"
             android:layout_margin="16dp"
             app:cardCornerRadius="20dp">
+
             <ImageButton
                 android:id="@+id/img_btn5"
                 android:src="@drawable/checkgrande"
@@ -105,6 +115,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/btn_bg_sexo_enable" />
         </androidx.cardview.widget.CardView>
+
         <androidx.cardview.widget.CardView
             android:layout_height="0dp"
             android:layout_width="0dp"
@@ -112,6 +123,7 @@
             android:layout_rowWeight="1"
             android:layout_margin="16dp"
             app:cardCornerRadius="20dp">
+
             <ImageButton
                 android:id="@+id/img_btn6"
                 android:src="@drawable/checkgrande"

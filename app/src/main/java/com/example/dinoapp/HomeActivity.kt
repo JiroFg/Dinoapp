@@ -3,14 +3,14 @@ package com.example.dinoapp
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET
+import android.os.Bundle
 import android.provider.BaseColumns
 import android.util.Log
 import android.view.Window
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.dinoapp.DataBaseSQLite.DbContract
 import com.example.dinoapp.DataBaseSQLite.DinoItem
@@ -21,6 +21,7 @@ import com.example.dinoapp.LessonRecycler.Lesson
 import com.example.dinoapp.LessonRecycler.LessonProvider
 import com.example.dinoapp.databinding.ActivityHomeBinding
 import com.example.dinoapp.fragment.FBook
+import com.example.dinoapp.fragment.FCarga
 import com.example.dinoapp.fragment.FHome
 import com.example.dinoapp.fragment.FProfile
 import com.example.dinoapp.fragment.FShop
@@ -47,10 +48,11 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters {
         val fShop = FShop()
         val fHome = FHome()
         val fProfile = FProfile()
+        val fCarga = FCarga()
         fBook = FBook()
-
         //se asignan los valores por defecto
-        replaceFragment(fHome)
+        replaceFragment(fCarga)
+//        replaceFragment(fHome)
         binding.bottomNavigationView2.selectedItemId = R.id.nav_home
         binding.bottomNavigationView2.setOnItemSelectedListener {
 
