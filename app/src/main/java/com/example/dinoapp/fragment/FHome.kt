@@ -84,14 +84,20 @@ class FHome : Fragment() {
         super.onResume()
         addInformationUser()
         adapter.notifyDataSetChanged()
-        if (HomeActivity.boolNewDino){
-            var price = HomeActivity.dinoData.minByOrNull { it.precio }
-            Toast.makeText(context,price!!.precio.toString(),Toast.LENGTH_SHORT).show()
-            val coins = MainActivity.prefs.getCoins()
-            if (coins > price!!.precio){
-                showDialogNuevo()
-                HomeActivity.boolNewDino = false
+
+        try{
+            if (HomeActivity.boolNewDino){
+                var price = HomeActivity.dinoData.minByOrNull { it.precio }
+//                Toast.makeText(context,price!!.precio.toString(),Toast.LENGTH_SHORT).show()
+                val coins = MainActivity.prefs.getCoins()
+                if (coins > price!!.precio){
+                    showDialogNuevo()
+                    HomeActivity.boolNewDino = false
+                }
             }
+        }catch (e: Exception){
+//            print(e)
+            e.printStackTrace()
         }
     }
 }
