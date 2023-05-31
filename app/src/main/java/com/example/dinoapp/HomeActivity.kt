@@ -11,6 +11,8 @@ import android.util.Log
 import android.view.Window
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.dinoapp.DataBaseSQLite.DbContract
 import com.example.dinoapp.DataBaseSQLite.DinoItem
@@ -146,14 +148,13 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters, InterfaceNav {
 
     override fun activar() {
         Log.d("PRUEBA HOME", "Entro a activar")
-        binding.bottomNavigationView2.isEnabled = true
-        binding.bottomNavigationView2.isClickable = true
+        binding.bottomNavigationView2.isVisible = true
+        binding.bottomNavigationView2.setBackgroundColor(Color.parseColor("#FF7F3D00"))
     }
 
     override fun desactivar() {
         Log.d("PRUEBA HOME", "Entro a desactivar")
-        binding.bottomNavigationView2.isEnabled = false
-        binding.bottomNavigationView2.isClickable = false
-
+        binding.bottomNavigationView2.isInvisible = true
+        binding.bottomNavigationView2.setBackgroundColor(Color.TRANSPARENT)
     }
 }
