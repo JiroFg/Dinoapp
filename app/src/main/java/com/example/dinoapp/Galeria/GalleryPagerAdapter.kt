@@ -5,16 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.dinoapp.DinoInfoActivity
 import com.example.dinoapp.R
 
 class GalleryPagerAdapter : RecyclerView.Adapter<GalleryPagerAdapter.ViewHolder>() {
-
-    private val images = listOf(
-        R.drawable.dilo,
-        R.drawable.trex,
-        R.drawable.raptor,
-        // Agrega más imágenes aquí
-    )
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -24,12 +19,12 @@ class GalleryPagerAdapter : RecyclerView.Adapter<GalleryPagerAdapter.ViewHolder>
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val imageResId = images[position]
+        val img = DinoInfoActivity.galleryData[position]
         val imageView = holder.itemView.findViewById<ImageView>(R.id.imageView)
-        imageView.setImageResource(imageResId)
+        Glide.with(imageView.context).load(img.img).into(imageView)
     }
 
     override fun getItemCount(): Int {
-        return images.size
+        return DinoInfoActivity.galleryData.size
     }
 }

@@ -2,8 +2,8 @@ package com.example.dinoapp.Galeria
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.dinoapp.DinoInfoActivity
 import com.example.dinoapp.R
 import com.example.dinoapp.databinding.ActivityGaleriaBinding
 
@@ -17,7 +17,6 @@ class GaleriaActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val viewPager: ViewPager2 = findViewById(R.id.viewPager)
-        val thumbnailRecyclerView: RecyclerView = findViewById(R.id.thumbnailRecyclerView)
 
 // Configurar el ViewPager2
         val adapter = GalleryPagerAdapter()
@@ -25,11 +24,14 @@ class GaleriaActivity : AppCompatActivity() {
 
 // Configurar el RecyclerView de las miniaturas
         val thumbnailAdapter = ThumbnailAdapter()
-        thumbnailRecyclerView.adapter = thumbnailAdapter
 
         binding.botonSalir.setOnClickListener {
             finish()
         }
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        DinoInfoActivity.galleryData.clear()
     }
 }

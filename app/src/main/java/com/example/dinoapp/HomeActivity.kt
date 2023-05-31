@@ -29,7 +29,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HomeActivity : AppCompatActivity(), InterfaceFilters {
+class HomeActivity : AppCompatActivity(), InterfaceFilters, InterfaceNav {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var fBook: FBook
@@ -142,5 +142,18 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters {
         val lessonData = mutableListOf<Lesson>()
         val shopData = mutableListOf<DinoItem>()
         var boolNewDino = true
+    }
+
+    override fun activar() {
+        Log.d("PRUEBA HOME", "Entro a activar")
+        binding.bottomNavigationView2.isEnabled = true
+        binding.bottomNavigationView2.isClickable = true
+    }
+
+    override fun desactivar() {
+        Log.d("PRUEBA HOME", "Entro a desactivar")
+        binding.bottomNavigationView2.isEnabled = false
+        binding.bottomNavigationView2.isClickable = false
+
     }
 }

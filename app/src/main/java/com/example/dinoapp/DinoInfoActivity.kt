@@ -3,9 +3,14 @@ package com.example.dinoapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.bumptech.glide.Glide
 import com.example.dinoapp.Galeria.GaleriaActivity
+import com.example.dinoapp.Galeria.GalleryItem
+import com.example.dinoapp.Galeria.GalleryProvider
 import com.example.dinoapp.databinding.ActivityDinoInfoBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 class DinoInfoActivity : AppCompatActivity() {
 
@@ -21,6 +26,7 @@ class DinoInfoActivity : AppCompatActivity() {
         const val DINO_PESO = "dinoPeso"
         const val DINO_LONG = "dinoLongitud"
         const val DINO_IMG = "dinoImg"
+        var galleryData = mutableListOf<GalleryItem>()
     }
 
     private lateinit var binding: ActivityDinoInfoBinding
@@ -29,7 +35,7 @@ class DinoInfoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDinoInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        val id = intent.getIntExtra(DINO_ID,0)
         val nombre = intent.getStringExtra(DINO_NOMBRE)
         val dieta = intent.getStringExtra(DINO_DIETA)
         val epoca = intent.getStringExtra(DINO_EPOCA)
@@ -39,6 +45,10 @@ class DinoInfoActivity : AppCompatActivity() {
         val peso = intent.getFloatExtra(DINO_PESO, 0F)
         val long = intent.getFloatExtra(DINO_LONG,0F)
         val img = intent.getStringExtra(DINO_IMG)
+        CoroutineScope(Dispatchers.IO).apply{
+            GalleryProvider.cargarGallery(id)
+        }
+        Log.d("PRUEBA", galleryData.toString())
 
         binding.textName.text = nombre
         binding.dietaText.text = dieta

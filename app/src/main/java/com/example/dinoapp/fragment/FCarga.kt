@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.dinoapp.InterfaceNav
 import com.example.dinoapp.R
 
 class FCarga : Fragment() {
@@ -15,8 +16,10 @@ class FCarga : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+        val myInterface : InterfaceNav = activity as InterfaceNav
+        myInterface.desactivar()
         Handler().postDelayed({
+            //myInterface.activar()
             val fhome = FHome()
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
