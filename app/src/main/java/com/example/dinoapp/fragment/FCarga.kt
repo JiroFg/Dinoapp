@@ -19,13 +19,13 @@ class FCarga : Fragment() {
         val myInterface : InterfaceNav = activity as InterfaceNav
         myInterface.desactivar()
         Handler().postDelayed({
-            myInterface.activar()
             val fhome = FHome()
             val fragmentManager = requireActivity().supportFragmentManager
             val fragmentTransaction = fragmentManager.beginTransaction()
             fragmentTransaction.replace(R.id.frame_layout, fhome)
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
+            myInterface.activar()
         },1000)
 
         return inflater.inflate(R.layout.carga, container, false)
