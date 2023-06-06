@@ -31,7 +31,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HomeActivity : AppCompatActivity(), InterfaceFilters, InterfaceNav {
+class HomeActivity : AppCompatActivity(), InterfaceFilters, InterfaceNav, InterfaceConexion {
 
     private lateinit var binding: ActivityHomeBinding
     private lateinit var fBook: FBook
@@ -156,5 +156,13 @@ class HomeActivity : AppCompatActivity(), InterfaceFilters, InterfaceNav {
         Log.d("PRUEBA HOME", "Entro a desactivar")
         binding.bottomNavigationView2.isInvisible = true
         binding.bottomNavigationView2.setBackgroundColor(Color.TRANSPARENT)
+    }
+
+    override fun showError() {
+        showDialog()
+    }
+
+    override fun verificarConexion(): Boolean {
+        return isNetworkAvailable()
     }
 }

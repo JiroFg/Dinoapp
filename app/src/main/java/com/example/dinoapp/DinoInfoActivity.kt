@@ -1,9 +1,16 @@
 package com.example.dinoapp
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Window
+import android.widget.Button
 import com.bumptech.glide.Glide
 import com.example.dinoapp.Galeria.GaleriaActivity
 import com.example.dinoapp.Galeria.GalleryItem
@@ -68,8 +75,41 @@ class DinoInfoActivity : AppCompatActivity() {
     fun buttonsConf(){
         binding.backButton.setOnClickListener { finish() }
         binding.galeria.setOnClickListener {
-            val intent = Intent(this, GaleriaActivity::class.java)
-            startActivity(intent)
+            if(isNetworkAvailable()) {
+                val intent = Intent(this, GaleriaActivity::class.java)
+                startActivity(intent)
+            }else{
+                showDialog()
+            }
         }
+    }
+
+    private fun isNetworkAvailable(): Boolean {
+        val cm = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        val capabilities = cm.getNetworkCapabilities(cm.activeNetwork)
+        return (capabilities != null && capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET))
+    }
+
+    fun drawLayout() {
+        if (!isNetworkAvailable()) {
+            showDialog()
+        }
+    }
+
+    private fun showDialog() {
+
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(false)
+        dialog.setContentView(R.layout.error_conexion)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        val dialogButton: Button = dialog.findViewById(R.id.dialog_button)
+        dialogButton.setOnClickListener {
+            if (isNetworkAvailable()) {
+                dialog.dismiss()
+            }
+        }
+        dialog.show()
     }
 }

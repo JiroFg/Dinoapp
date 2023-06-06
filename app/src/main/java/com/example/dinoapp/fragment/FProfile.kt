@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.example.dinoapp.HomeActivity
+import com.example.dinoapp.InterfaceConexion
+import com.example.dinoapp.InterfaceTransferencia
 import com.example.dinoapp.profileEdit.Change_name
 import com.example.dinoapp.Prefs.Prefs
 import com.example.dinoapp.databinding.FragmentFProfileBinding
@@ -26,20 +28,25 @@ class FProfile : Fragment() {
     ): View? {
         _binding = FragmentFProfileBinding.inflate(inflater, container, false)
         prefs = Prefs(binding.name.context)
+        val myInterface : InterfaceConexion = activity as InterfaceConexion
         binding.progressBar.max = HomeActivity.dinoData.size
         addInformationUser()
-        addEvents()
+        addEvents(myInterface)
         return binding.root
     }
-    fun addEvents() {
+    fun addEvents(myInterfaceConexion: InterfaceConexion) {
         binding.btnEdiName.setOnClickListener {
             val intent = Intent(activity, Change_name::class.java)
             startActivity(intent)
         }
 
         binding.btnEditAvatar.setOnClickListener {
-            val intent = Intent(activity, ChangeProfileImage::class.java)
-            startActivity(intent)
+            if(myInterfaceConexion.verificarConexion()) {
+                val intent = Intent(activity, ChangeProfileImage::class.java)
+                startActivity(intent)
+            }else{
+                myInterfaceConexion.showError()
+            }
         }
     }
     fun addInformationUser() {
