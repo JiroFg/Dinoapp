@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dinoapp.AyudaActivity
@@ -32,7 +31,7 @@ class FHome : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFHomeBinding.inflate(inflater, container, false)
         addInformationUser()
         initRecyclerView()
@@ -82,12 +81,14 @@ class FHome : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        addInformationUser()
+        try {
+            addInformationUser()
+        }catch (_: Exception){}
         adapter.notifyDataSetChanged()
 
         try{
             if (HomeActivity.boolNewDino){
-                var price = HomeActivity.dinoData.minByOrNull { it.precio }
+                val price = HomeActivity.dinoData.minByOrNull { it.precio }
 //                Toast.makeText(context,price!!.precio.toString(),Toast.LENGTH_SHORT).show()
                 val coins = MainActivity.prefs.getCoins()
                 if (coins > price!!.precio){

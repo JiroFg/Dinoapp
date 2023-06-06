@@ -4,14 +4,12 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Window
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.dinoapp.LessonActivity
@@ -76,7 +74,7 @@ class QuizActivity : AppCompatActivity() {
                     score++
                 }
                 setColor(pregunta.correcta,R.drawable.opcion_pregunta_correcta)
-                if (opcionSeleccionada==listaPreguntas!!.size){
+                if (currentpos==listaPreguntas!!.size){
                     binding.btnContinuar.text = "Terminar"
                     binding.btnOpc1.isClickable = false
                     binding.btnOpc2.isClickable = false
@@ -101,7 +99,6 @@ class QuizActivity : AppCompatActivity() {
                         if(idTupla == prefs.getLvl()){
                             prefs.editLvl(prefs.getLvl()+1)
                             //Toast.makeText(this, prefs.getLvl(),Toast.LENGTH_SHORT).show()
-                            Log.d("Quiz preuba", "ID TUPLA: $idTupla LVL: ${prefs.getLvl()}")
                         }
                         //-------------Agregar datos a la BD Local ------------------//
                         //-----//
@@ -112,7 +109,6 @@ class QuizActivity : AppCompatActivity() {
         }
 
         binding.btnAtras.setOnClickListener{
-            Toast.makeText(this,"click", Toast.LENGTH_SHORT).show()
             finish()
         }
         binding.btnAyuda.setOnClickListener {
@@ -170,7 +166,7 @@ class QuizActivity : AppCompatActivity() {
     }
 
     fun setOptionStyle(){
-        var listaOpciones:ArrayList<TextView> = arrayListOf()
+        val listaOpciones:ArrayList<TextView> = arrayListOf()
         listaOpciones.add(0,binding.btnOpc1)
         listaOpciones.add(1,binding.btnOpc2)
         listaOpciones.add(2,binding.btnOpc3)

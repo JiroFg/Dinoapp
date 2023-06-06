@@ -41,7 +41,7 @@ class FShop : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFShopBinding.inflate(inflater, container, false)
         prefs = Prefs(binding.btnRuleta.context)
         //metodo para colocar la información del usuario en la TopBar
@@ -58,11 +58,11 @@ class FShop : Fragment() {
         // boton que muestra los premios de la ruleta
         binding.Premios.setOnClickListener {
 
-            // ----------HACK-----------
-            prefs.editCoins(1000)
-            prefs.editLvl(1000)
-            addInformationUser()
-            // --------------------------
+//            // ----------HACK-----------
+//            prefs.editCoins(1000)
+//            prefs.editLvl(1000)
+//            addInformationUser()
+//            // --------------------------
 
             showDialogPremios()
         }
